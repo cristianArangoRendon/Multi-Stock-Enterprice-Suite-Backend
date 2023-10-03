@@ -1,0 +1,12 @@
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\bin\Release\net7.0\ProyectoFinal.Core.deps.json
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\bin\Release\net7.0\ProyectoFinal.Core.dll
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\bin\Release\net7.0\ProyectoFinal.Core.pdb
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\ProyectoFinal.Core.csproj.AssemblyReference.cache
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\ProyectoFinal.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\ProyectoFinal.Core.AssemblyInfoInputs.cache
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\ProyectoFinal.Core.AssemblyInfo.cs
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\ProyectoFinal.Core.csproj.CoreCompileInputs.cache
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\ProyectoFinal.Core.dll
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\refint\ProyectoFinal.Core.dll
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\ProyectoFinal.Core.pdb
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Core\obj\Release\net7.0\ref\ProyectoFinal.Core.dll

@@ -1,0 +1,15 @@
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\bin\Debug\net7.0\ProyectoFinal.Infraestructure.deps.json
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\bin\Debug\net7.0\ProyectoFinal.Infraestructure.dll
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\bin\Debug\net7.0\ProyectoFinal.Infraestructure.pdb
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\bin\Debug\net7.0\ProyectoFinal.Core.dll
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\bin\Debug\net7.0\ProyectoFinal.Core.pdb
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ProyectoFinal.Infraestructure.csproj.AssemblyReference.cache
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ProyectoFinal.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ProyectoFinal.Infraestructure.AssemblyInfoInputs.cache
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ProyectoFinal.Infraestructure.AssemblyInfo.cs
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ProyectoFinal.Infraestructure.csproj.CoreCompileInputs.cache
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ProyectoFinal.Infraestructure.csproj.CopyComplete
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ProyectoFinal.Infraestructure.dll
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\refint\ProyectoFinal.Infraestructure.dll
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ProyectoFinal.Infraestructure.pdb
+C:\Users\EQUIPO\source\repos\ProyectoFinal\ProyectoFinal.Infraestructure\obj\Debug\net7.0\ref\ProyectoFinal.Infraestructure.dll
