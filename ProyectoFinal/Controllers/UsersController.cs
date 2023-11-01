@@ -16,8 +16,8 @@ namespace ProyectoFinal.Controllers
         
 
 
-        [Route("Create/Users")]
-        [HttpPost]  
+        
+        [HttpPost("Create/Users")]  
         public async Task<ResponseDTO> CreateUser(UsersDTO User)
         {
             return await _usersBLL.CreateUsuario(User);

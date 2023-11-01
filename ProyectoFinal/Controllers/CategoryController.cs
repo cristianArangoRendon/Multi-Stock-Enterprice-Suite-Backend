@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.Filters;
 
 namespace ProyectoFinal.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Category")]
     [ApiController]
     [Authorize]
 
@@ -17,6 +17,7 @@ namespace ProyectoFinal.Controllers
         private readonly ICategoryBLL _CategoryBll;
 
         public CategoryController(ICategoryBLL categoryBLL) => _CategoryBll = categoryBLL;
+
 
         [HttpGet("Get/Category")]
         public async Task<ResponseDTO> GetCategory( ) => await _CategoryBll.GetCategoryBLL();

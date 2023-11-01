@@ -41,7 +41,6 @@ namespace ProyectoFinal.Infraestructure.BLL.Brand
 
             try
             {
-
                 return await _repository.DeleteBrandRepository(IdBrand);
             }
             catch (Exception ex)
@@ -59,7 +58,6 @@ namespace ProyectoFinal.Infraestructure.BLL.Brand
 
             try
             {
-
                 return await _repository.GetBrandByIdRepository(IdBrand);
             }
             catch (Exception ex)
@@ -77,7 +75,6 @@ namespace ProyectoFinal.Infraestructure.BLL.Brand
 
             try
             {
-
                 return await _repository.GetBrandsRepository();
             }
             catch (Exception ex)

@@ -7,6 +7,7 @@ using ProyectoFinal.Core.Interfaces.IBLL.Brand;
 namespace ProyectoFinal.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     [Authorize]
     public class BrandController : ControllerBase
     {

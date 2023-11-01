@@ -5,7 +5,6 @@ namespace ProyectoFinal.Core.Interfaces.IRepository.Brand
 {
     public interface IBrandRepository
     {
-
         Task<ResponseDTO> GetBrandsRepository();
         Task<ResponseDTO> GetBrandByIdRepository(int IdBrand);
         Task<ResponseDTO> CreateBrandRepository(string Description);

@@ -14,14 +14,10 @@ namespace ProyectoFinal.Controllers
         private readonly IProviderBLL _ProviderBLL;
 
         public ProviderController(IProviderBLL providerBLL) => _ProviderBLL = providerBLL;
-        
-
 
         [HttpGet("/Get/Provider")]
         public async Task<ResponseDTO> GetProvider( ) => await _ProviderBLL.GetProviderBLL();
         
-
-
 
         [HttpGet("/Get/Provider/By/Id")]
         public async Task<ResponseDTO> GetProviderById(int IdProvider) => await _ProviderBLL.GetProviderByIdBLL(IdProvider);
