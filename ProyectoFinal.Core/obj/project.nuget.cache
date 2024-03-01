@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k3NkPfp82Xa52+fYtEY1tUpQ8fOi8ipoabrkFtzliASQKwuZzLCerU9LNfdPkloCzw68xzybovzrXfhMfDSZcA==",
+  "dgSpecHash": "cWV4PlCl9QYAJQ5kuTXABmj9hUojGeuAWbbAD8GFbnRXuMwP4CTNfGNVOPuJubOqsmT532qTO8BTJaGpTJnDDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EQUIPO\\source\\repos\\ProyectoFinal\\ProyectoFinal.Core\\ProyectoFinal.Core.csproj",
+  "projectFilePath": "C:\\Users\\EQUIPO\\source\\repos\\Proyecto_final\\ProyectoFinal.Core\\ProyectoFinal.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EQUIPO\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\2.1.0\\microsoft.extensions.dependencyinjection.2.1.0.nupkg.sha512",
     "C:\\Users\\EQUIPO\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.9\\microsoft.extensions.dependencyinjection.abstractions.3.1.9.nupkg.sha512",
@@ -25,5 +25,16 @@
     "C:\\Users\\EQUIPO\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\EQUIPO\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"System.Data.SqlClient\" 4.8.5 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }
