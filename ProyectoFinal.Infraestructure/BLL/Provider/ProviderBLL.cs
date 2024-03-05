@@ -51,7 +51,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
         }
 
-        public async Task<ResponseDTO> GetProviderBLL()
+        public async Task<ResponseDTO> GetProviderBLL( )
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;

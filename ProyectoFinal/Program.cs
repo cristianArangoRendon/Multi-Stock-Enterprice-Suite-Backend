@@ -4,7 +4,10 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using ProyectoFinal.Core.DTOs.Common;
 using ProyectoFinal.Core.DTOs.Response;
+using ProyectoFinal.Core.Interfaces.IServices;
 using ProyectoFinal.Infraestructure.IoC;
+using ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceService;
+using ProyectoFinal.Infraestructure.Services.SqlCommandService;
 using Swashbuckle.AspNetCore.Filters;
 using System.Net;
 using System.Reflection;
@@ -20,8 +23,11 @@ var configuration = new ConfigurationBuilder()
 
 
 services.AddProyectoFinal(configuration);
+services.AddScoped<IExecuteStoredProcedureServiceService, ExecuteStoredProcedureServiceService>();
+services.AddScoped<ISqlCommandService, SqlCommandService>();
 var appSettingSection = configuration.GetSection("AppSettings");
 builder.Services.Configure<AppSettings>(appSettingSection);
+
 
 var appSettings = appSettingSection.Get<AppSettings>();
 var key = Encoding.ASCII.GetBytes(appSettings.SecretToken);

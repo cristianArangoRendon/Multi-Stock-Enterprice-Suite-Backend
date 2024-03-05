@@ -2,7 +2,7 @@
 {
     public class ProviderDTO
     {
-        public int IdProvider { get; set; }
+        public int idProvider { get; set; }
         public string Description { get; set; }
     }
 }

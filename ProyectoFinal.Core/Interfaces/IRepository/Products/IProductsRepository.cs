@@ -5,7 +5,7 @@ namespace ProyectoFinal.Core.Interfaces.IRepository.Products
 {
     public interface IProductsRepository
     {
-        Task<ResponseDTO> CreateProducsRepository(ProductsDTO products);
+        Task<ResponseDTO> CreateProducsRepository(CreateProductDTO products);
         Task<ResponseDTO> UpdateProductRepository(ProductsDTO products);
         Task<ResponseDTO> GetProductsRepository();
         Task<ResponseDTO> GetProductsByIdRepository(int IdProducts);

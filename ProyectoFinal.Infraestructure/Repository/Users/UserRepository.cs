@@ -4,6 +4,8 @@ using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.DTOs.Users;
 using ProyectoFinal.Core.Interfaces.DataContext;
 using ProyectoFinal.Core.Interfaces.IRepository.Users;
+using ProyectoFinal.Core.Interfaces.IServices;
+using ProyectoFinal.Infraestructure.Helpers;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -13,11 +15,13 @@ namespace ProyectoFinal.Infraestructure.Repository.Users
     {
         private readonly IDataContextProyectoFinal _dataContext;
         private readonly ILogService _logService;
+        private readonly IExecuteStoredProcedureServiceService _ExecuteStoredProcedureServiceService;
 
-        public UserRepository(IDataContextProyectoFinal dataContext, ILogService logService)
+        public UserRepository(IDataContextProyectoFinal dataContext, ILogService logService, IExecuteStoredProcedureServiceService Service)
         {
             _dataContext = dataContext;
             _logService = logService;
+            _ExecuteStoredProcedureServiceService = Service;
         }
 
         public async Task<ResponseDTO> Auth(string email, string password)
@@ -45,58 +49,20 @@ namespace ProyectoFinal.Infraestructure.Repository.Users
             }
         }
 
-        public async Task<ResponseDTO> CreateUsersRepository(UsersDTO userDTO)
+        public async Task<ResponseDTO> CreateUsersRepository(CreateUserDTO userDTO)
         {
-            ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = false;
-            try
-            {
-                using SqlCommand command = _dataContext.CreateCommand();
-                command.CommandText = "dbo.CreateUsers";
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Names", userDTO.Names);
-                command.Parameters.AddWithValue("@lastNames", userDTO.lastNames);
-                command.Parameters.AddWithValue("@Email", userDTO.Email);
-                command.Parameters.AddWithValue("@password", userDTO.password);
-                command.Parameters.AddWithValue("@idRol", userDTO.idRol);
-                using SqlDataReader reader = await command.ExecuteReaderAsync();
-                await reader.ReadAsync();
-                response.IsSuccess = true;
-                response.Message = reader.GetString(reader.GetOrdinal("ResultMessage"));
-                return response;
-            }
-            catch (Exception ex)
-            {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el SP CreateUsers: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
-            }
+            object obj = userDTO.ToObject<CreateUserDTO>();
+            return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("dbo.CreateUsers", obj);
         }
 
         public async Task<ResponseDTO> DeleteUserRepository(int id)
         {
-            ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = false;
-            try
+            var parameters = new
             {
+                UserId = id,
+            };
 
-                using SqlCommand command = _dataContext.CreateCommand();
-                command.CommandText = "dbo.DeleteUsers";
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@UserId", id);
-                using SqlDataReader reader = await command.ExecuteReaderAsync();
-                await reader.ReadAsync();
-                response.IsSuccess = true;
-                response.Message = reader.GetString(reader.GetOrdinal("ResultMessage"));
-
-                return response;
-            }
-            catch (Exception ex)
-            {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el SP DeleteUsers: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
-            }
+            return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("dbo.DeleteUsers", parameters);
         }
 
         public async Task<UsersDTO> GetUserByEmail(string user)
@@ -114,80 +80,28 @@ namespace ProyectoFinal.Infraestructure.Repository.Users
 
         public async Task<ResponseDTO> GetUserByIdRepository(int idUser)
         {
-            ResponseDTO respuesta = new ResponseDTO();
-            respuesta.IsSuccess = false;
-            try
+            var parameters = new
             {
-                using SqlCommand command = _dataContext.CreateCommand();
-                command.CommandText = "dbo.GetUserById";
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@IdUser", idUser);
-                using SqlDataReader reader = await command.ExecuteReaderAsync();
-                respuesta.Data = MapToObjHelper.MapToObj<UsersDTO>(reader);
-                respuesta.IsSuccess = true;
-                return respuesta;
-            }
-            catch (Exception ex)
-            {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el SP  GetUserById: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
-            }
+                IdUser = idUser,
+            };
+
+            return await _ExecuteStoredProcedureServiceService.ExecuteSingleObjectStoredProcedure("dbo.GetUserById", parameters, MapToObjHelper.MapToObj<UsersDTO>);
         }
 
         public async Task<ResponseDTO> GetUsersRepository(int idRol)
         {
-            ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = false;
-            try
+            var parameters = new
             {
-                using SqlCommand command = _dataContext.CreateCommand();
-                command.CommandText = "dbo.GetUsers";
-                command.Parameters.AddWithValue("@idRol", idRol);
-                command.CommandType = CommandType.StoredProcedure;
-                using SqlDataReader reader = await command.ExecuteReaderAsync();
-                List<UsersDTO> Rol = MapToListHelper.MapToList<UsersDTO>(reader);
-                response.IsSuccess = true;
-                response.Message = "Successful Petition";
-                response.Data = Rol;
+                idRol = idRol,
+            };
 
-                return response;
-            }
-            catch (Exception ex)
-            {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el SP  GetUsers: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
-            }
+            return await _ExecuteStoredProcedureServiceService.ExecuteDataStoredProcedure("dbo.GetUsers", parameters, MapToListHelper.MapToList<UsersDTO>);
         }
 
         public async Task<ResponseDTO> UpdateUserRepository(UsersDTO userDTO)
         {
-            ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = false;
-            try
-            {
-                using SqlCommand command = _dataContext.CreateCommand();
-                command.CommandText = "dbo.UpdateUsers";
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@idUser", userDTO.IdUser);
-                command.Parameters.AddWithValue("@Names", userDTO.Names);
-                command.Parameters.AddWithValue("@lastNames", userDTO.lastNames);
-                command.Parameters.AddWithValue("@Email", userDTO.Email);
-                command.Parameters.AddWithValue("@password", userDTO.password);
-                command.Parameters.AddWithValue("@idRol", userDTO.idRol);
-                using SqlDataReader reader = await command.ExecuteReaderAsync();
-                await reader.ReadAsync();
-                response.IsSuccess = true;
-                response.Message = reader.GetString(reader.GetOrdinal("ResultMessage"));
-                return response;
-            }
-            catch (Exception ex)
-            {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el SP UpdateUsers: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
-            }
+            object obj = userDTO.ToObject<UsersDTO>();
+            return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("dbo.UpdateUsers", obj);
         }
     }
 }

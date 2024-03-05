@@ -15,23 +15,23 @@ namespace ProyectoFinal.Controllers
 
         public ProviderController(IProviderBLL providerBLL) => _ProviderBLL = providerBLL;
 
-        [HttpGet("/Get/Provider")]
-        public async Task<ResponseDTO> GetProvider( ) => await _ProviderBLL.GetProviderBLL();
+        [HttpGet("/Provider")]
+        public async Task<ResponseDTO> GetProvider() => await _ProviderBLL.GetProviderBLL();
         
 
-        [HttpGet("/Get/Provider/By/Id")]
+        [HttpGet("/Provider/By/Id")]
         public async Task<ResponseDTO> GetProviderById(int IdProvider) => await _ProviderBLL.GetProviderByIdBLL(IdProvider);
         
 
-        [HttpDelete("/Delete/Provider")]
+        [HttpDelete("/Provider")]
         public async Task<ResponseDTO> DeleteProvider(int idProvider) => await _ProviderBLL.DeleteProviderBLL(idProvider);
         
 
-        [HttpPut("/Update/Provider")]
+        [HttpPut("/Provider")]
         public async Task<ResponseDTO> UpdateProvider(ProviderDTO provider)  => await _ProviderBLL.UpdateProviderBLL(provider);
         
 
-        [HttpPost("/Create/Provider")]
+        [HttpPost("/Provider")]
         public async Task<ResponseDTO> CreateProvider(string provider)  => await _ProviderBLL.CreateProviderBLL(provider);
         
 

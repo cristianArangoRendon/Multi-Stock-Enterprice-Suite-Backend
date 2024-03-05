@@ -19,24 +19,24 @@ namespace ProyectoFinal.Controllers
         public CategoryController(ICategoryBLL categoryBLL) => _CategoryBll = categoryBLL;
 
 
-        [HttpGet("Get/Category")]
+        [HttpGet("/Categories")]
         public async Task<ResponseDTO> GetCategory( ) => await _CategoryBll.GetCategoryBLL();
         
 
-        [HttpPost("Create/Category")]
+        [HttpPost("/Category")]
         public async Task<ResponseDTO>  CreateCategory(string categori) =>  await _CategoryBll.CreateCategoryBLL(categori);
         
 
-        [HttpDelete("Delete/Category")]
+        [HttpDelete("/Category")]
         public async Task<ResponseDTO> DeleteCategory(int idCategory) =>  await _CategoryBll.DeleteCategoryBLL(idCategory);
         
 
-        [HttpGet("Get/Category/By/Id")]
+        [HttpGet("/Category/By/Id")]
         public async Task<ResponseDTO> GetCategoryById(int idCategory) => await _CategoryBll.GetCategoryByIdBLL(idCategory);
         
 
 
-        [HttpPut("Update/Category")]
+        [HttpPut("/Category")]
         public async Task<ResponseDTO> UpdateCategory(categoryDTO category) => await _CategoryBll.UpdateCategoryBLL(category);
         
 

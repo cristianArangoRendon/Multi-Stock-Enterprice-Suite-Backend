@@ -16,23 +16,23 @@ namespace ProyectoFinal.Controllers
         
 
 
-        [HttpGet("/Get/Rol")]
+        [HttpGet("/Rol")]
         public async Task<ResponseDTO> GetRoles() => await _RolBll.GetRolesBLL();
         
 
 
-        [HttpGet("/Get/Rol/By/Id")]
+        [HttpGet("/Rol/By/Id")]
         public async Task<ResponseDTO> GetRoles(int idRol) =>  await _RolBll.GetRolByIdBLL(idRol);
 
         
 
-        [HttpPut("/Update/Rol")]
+        [HttpPut("/Rol")]
         public async Task<ResponseDTO> UpdateRol(RolDTO rol) => await _RolBll.UpdateRolBLL(rol);
 
         
 
-        [HttpPost("/Create/Rol")]
-        public async Task<ResponseDTO> CreateRol(String Description) =>  await _RolBll.CreateRolBLL(Description);
+        [HttpPost("/Rol")]
+        public async Task<ResponseDTO> CreateRol(string Description) =>  await _RolBll.CreateRolBLL(Description);
 
         
     }

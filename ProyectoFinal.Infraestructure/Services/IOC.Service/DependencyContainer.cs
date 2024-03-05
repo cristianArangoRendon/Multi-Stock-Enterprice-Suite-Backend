@@ -1,5 +1,6 @@
 ﻿using ActiveDirectoryBack.Core.Interfaces.Services;
 using Microsoft.Extensions.DependencyInjection;
+using ProyectoFinal.Core.Interfaces.IServices;
 
 namespace ProyectoFinal.Infraestructure.Services.LogService
 {
@@ -10,9 +11,7 @@ namespace ProyectoFinal.Infraestructure.Services.LogService
             {
                 services.AddScoped<ILogService, LogService>();
 
-
-
-                return services;
+            return services;
             }
         }
 }

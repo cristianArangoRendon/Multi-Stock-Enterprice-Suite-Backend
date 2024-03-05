@@ -5,7 +5,7 @@ namespace ProyectoFinal.Core.Interfaces.IBLL.Users
 {
     public interface IUserBLL
     {
-        Task<ResponseDTO> CreateUsuario(UsersDTO userDTO);
+        Task<ResponseDTO> CreateUsuario(CreateUserDTO userDTO);
         Task<ResponseDTO> DeleteUser(int id);
         Task<ResponseDTO> UpdateUser(UsersDTO userDTO);
         Task<ResponseDTO> GetUser(int idUsers);

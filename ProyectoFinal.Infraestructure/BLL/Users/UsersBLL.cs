@@ -52,7 +52,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
             }
         }
 
-        public async Task<ResponseDTO> CreateUsuario(UsersDTO userDTO)
+        public async Task<ResponseDTO> CreateUsuario(CreateUserDTO userDTO)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
@@ -134,6 +134,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
 
             try
             {
+                userDTO.password = Hash256Helper.GetSHA256Hash(userDTO.password);
                 ResponseDTO responseRepository = await _userRepository.UpdateUserRepository(userDTO);
                 return responseRepository;
             }

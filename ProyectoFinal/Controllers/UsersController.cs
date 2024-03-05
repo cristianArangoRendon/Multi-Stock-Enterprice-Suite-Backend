@@ -17,14 +17,14 @@ namespace ProyectoFinal.Controllers
 
 
         
-        [HttpPost("Create/Users")]  
-        public async Task<ResponseDTO> CreateUser(UsersDTO User)
+        [HttpPost("/User")]  
+        public async Task<ResponseDTO> CreateUser(CreateUserDTO User)
         {
             return await _usersBLL.CreateUsuario(User);
         }
 
 
-        [HttpDelete("/Delete/User")]
+        [HttpDelete("/User")]
         public async Task<ResponseDTO> DeleteUsuario(int id)
         {
             return await _usersBLL.DeleteUser(id);
@@ -32,7 +32,7 @@ namespace ProyectoFinal.Controllers
         }
 
 
-        [HttpGet("/Get/Users")]
+        [HttpGet("/Users")]
         public async Task<ResponseDTO> GetUsers(int idRol)
         {
             return await _usersBLL.GetUser(idRol);
@@ -40,14 +40,14 @@ namespace ProyectoFinal.Controllers
 
 
 
-        [HttpPut("/Update/Users")]
+        [HttpPut("/User")]
         public async Task<ResponseDTO> UpdateUsersById(UsersDTO userDTO )
         {
             return await _usersBLL.UpdateUser(userDTO);
         }
 
 
-        [HttpGet("/Get/Users/By/Id")]
+        [HttpGet("/User/By/Id")]
         public async Task<ResponseDTO> GetUsersById(int idUser)
         {
             return await _usersBLL.IGetUserById(idUser);

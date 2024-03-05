@@ -5,7 +5,7 @@ namespace ProyectoFinal.Core.Interfaces.IBLL.Provider
 {
     public interface IProviderBLL
     {
-        Task<ResponseDTO> GetProviderBLL();
+        Task<ResponseDTO> GetProviderBLL( );
         Task<ResponseDTO> CreateProviderBLL(string Description);
         Task<ResponseDTO> UpdateProviderBLL(ProviderDTO providerDTO );
         Task<ResponseDTO> DeleteProviderBLL(int idProvider);

@@ -17,7 +17,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
             _LogService = logService;
         }
 
-        public async Task<ResponseDTO> CreateProductBLL(ProductsDTO products)
+        public async Task<ResponseDTO> CreateProductBLL(CreateProductDTO products)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
