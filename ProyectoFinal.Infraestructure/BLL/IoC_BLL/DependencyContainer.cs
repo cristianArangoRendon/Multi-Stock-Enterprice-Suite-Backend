@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ProyectoFinal.Core.Interfaces.IBLL.Brand;
 using ProyectoFinal.Core.Interfaces.IBLL.Category;
+using ProyectoFinal.Core.Interfaces.IBLL.Company;
 using ProyectoFinal.Core.Interfaces.IBLL.Products;
 using ProyectoFinal.Core.Interfaces.IBLL.Provider;
 using ProyectoFinal.Core.Interfaces.IBLL.Rol;
 using ProyectoFinal.Core.Interfaces.IBLL.Users;
 using ProyectoFinal.Infraestructure.BLL.Brand;
 using ProyectoFinal.Infraestructure.BLL.Category;
+using ProyectoFinal.Infraestructure.BLL.Company;
 using ProyectoFinal.Infraestructure.BLL.Products;
 using ProyectoFinal.Infraestructure.BLL.Provider;
 using ProyectoFinal.Infraestructure.BLL.Rol;
@@ -24,6 +26,7 @@ namespace ProyectoFinal.Infraestructure.BLL.IoC_BLL
             services.AddScoped<IProviderBLL, ProviderBLL>();
             services.AddScoped<IRolBLL, RolBLL>();
             services.AddScoped<IUserBLL, UsersBLL>();
+            services.AddScoped<ICompanyBLL, CompanyBLL>();
 
             return services;
         }

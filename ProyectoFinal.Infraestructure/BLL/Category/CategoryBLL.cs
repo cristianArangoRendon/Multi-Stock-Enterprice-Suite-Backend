@@ -3,6 +3,7 @@ using ProyectoFinal.Core.DTOs.category;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Category;
 using ProyectoFinal.Core.Interfaces.IRepository.Category;
+using ProyectoFinal.Infraestructure.Helpers;
 using ProyectoFinal.Infraestructure.Services.LogService;
 
 namespace ProyectoFinal.Infraestructure.BLL.Category
@@ -29,9 +30,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Category
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL CreateCategoryBLL: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -46,9 +45,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Category
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL DeleteCategoryRepository: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -63,9 +60,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Category
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL GetCategoryBLL: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -80,9 +75,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Category
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL GetCategoryByIdBLL: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -98,9 +91,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Category
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL UpdateCategoryBLL: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
     }

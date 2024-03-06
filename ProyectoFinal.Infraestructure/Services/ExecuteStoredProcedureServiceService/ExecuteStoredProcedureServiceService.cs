@@ -54,8 +54,9 @@ namespace ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceSe
             {
                 _logService.SaveLogsMessages($"Se ha producido un error al ejecutar el SP {storedProcedureName}: {ex.Message}");
                 response.Message += ex.ToString();
+                return response;
             }
-            return response;
+          
         }
 
         public async Task<ResponseDTO> ExecuteDataStoredProcedure<TResult>(string storedProcedureName, object parameters, Func<SqlDataReader, List<TResult>> mapFunction)
@@ -90,9 +91,8 @@ namespace ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceSe
             {
                 _logService.SaveLogsMessages($"Se ha producido un error al ejecutar el SP {storedProcedureName}: {ex.Message}");
                 response.Message += ex.ToString();
+                return response;
             }
-            return response;
-
         }
 
       
@@ -121,13 +121,15 @@ namespace ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceSe
                     response.Message = "Successfull Operation.";
                     response.Data = resultList;
                 }
+                return response;
             }
             catch (Exception ex)
             {
                 _logService.SaveLogsMessages($"Se ha producido un error al ejecutar el SP {storedProcedureName}: {ex.Message}");
                 response.Message += ex.ToString();
+                return response;
             }
-            return response;
+          
         }
 
         
@@ -146,13 +148,15 @@ namespace ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceSe
                 await reader.ReadAsync();
                 response.Message = "Successful operation.";
                 response.IsSuccess = true;
+                return response;
             }
             catch (Exception ex)
             {
                 _logService.SaveLogsMessages($"Se ha producido un error al ejecutar el SP {storedProcedureName}: {ex.Message}");
                 response.Message += ex.ToString();
+                return response;
             }
-            return response;
+            
         }
     }
 }

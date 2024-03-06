@@ -12,7 +12,16 @@ namespace ProyectoFinal.Controllers
         private readonly IUserBLL _usersBLL;
 
         public Auth(IUserBLL usersBLL) =>  _usersBLL = usersBLL;
-        
+
+        /// <summary>
+        /// Generates a token for authentication.
+        /// </summary>
+        /// <param name="auth">
+        ///      Required:
+        /// - `Email`: The authentication data containing email.
+        /// - `password`: The authentication data containing password.
+        /// </param>
+        /// <remarks>This endpoint generates a token for authentication based on the provided email and password.</remarks>
 
         [HttpPost("/Generate/Token")]
 

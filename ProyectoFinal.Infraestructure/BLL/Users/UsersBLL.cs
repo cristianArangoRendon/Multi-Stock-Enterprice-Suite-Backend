@@ -7,6 +7,7 @@ using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.DTOs.Users;
 using ProyectoFinal.Core.Interfaces.IBLL.Users;
 using ProyectoFinal.Core.Interfaces.IRepository.Users;
+using ProyectoFinal.Infraestructure.Helpers;
 
 namespace ProyectoFinal.Infraestructure.BLL.Users
 {
@@ -46,13 +47,11 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Error en Auth: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
-        public async Task<ResponseDTO> CreateUsuario(CreateUserDTO userDTO)
+        public async Task<ResponseDTO> CreateUser(CreateUserDTO userDTO )
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
@@ -64,9 +63,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll CreateUsuario: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -86,13 +83,11 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL DeleteUser: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
-        public async Task<ResponseDTO> GetUser(int idRol)
+        public async Task<ResponseDTO> GetUser(int idCompany)
         {
 
             ResponseDTO respuesta = new ResponseDTO();
@@ -100,13 +95,11 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
 
             try
             {
-                return await _userRepository.GetUsersRepository(idRol); ;
+                return await _userRepository.GetUsersRepository(idCompany); ;
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL GetUser: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -121,9 +114,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL IGetUserById: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -140,9 +131,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL UpdateUser: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
     }

@@ -3,6 +3,7 @@ using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.DTOs.Rol;
 using ProyectoFinal.Core.Interfaces.IBLL.Rol;
 using ProyectoFinal.Core.Interfaces.IRepository.Rol;
+using ProyectoFinal.Infraestructure.Helpers;
 
 namespace ProyectoFinal.Infraestructure.BLL.Rol
 {
@@ -28,9 +29,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Rol
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL CreateRolRepository: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -43,14 +42,11 @@ namespace ProyectoFinal.Infraestructure.BLL.Rol
 
             try
             {  
-               
                 return await _repository.GetRolByIdRepository(RolId); 
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL GetRolByIdRepository: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -65,9 +61,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Rol
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL GetRolesRepository: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -82,9 +76,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Rol
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el BLL UpdateRolRepository: " + ex.Message);
-                respuesta.Message += ex.ToString();
-                return respuesta;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
     }

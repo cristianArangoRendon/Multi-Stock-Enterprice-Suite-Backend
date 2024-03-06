@@ -3,6 +3,7 @@ using ProyectoFinal.Core.DTOs.Provider;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Provider;
 using ProyectoFinal.Core.Interfaces.IRepository.Provider;
+using ProyectoFinal.Infraestructure.Helpers;
 
 namespace ProyectoFinal.Infraestructure.BLL.Provider
 {
@@ -27,9 +28,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll CreateProviderBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -45,9 +44,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll DeleteProviderBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -62,9 +59,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll GetProviderBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -80,9 +75,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll GetProviderBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -97,9 +90,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll UpdateProviderBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
     }

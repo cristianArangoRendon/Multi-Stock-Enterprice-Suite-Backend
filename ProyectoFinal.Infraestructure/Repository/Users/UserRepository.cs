@@ -88,11 +88,11 @@ namespace ProyectoFinal.Infraestructure.Repository.Users
             return await _ExecuteStoredProcedureServiceService.ExecuteSingleObjectStoredProcedure("dbo.GetUserById", parameters, MapToObjHelper.MapToObj<UsersDTO>);
         }
 
-        public async Task<ResponseDTO> GetUsersRepository(int idRol)
+        public async Task<ResponseDTO> GetUsersRepository(int idCompany)
         {
             var parameters = new
             {
-                idRol = idRol,
+                idCompany = idCompany,
             };
 
             return await _ExecuteStoredProcedureServiceService.ExecuteDataStoredProcedure("dbo.GetUsers", parameters, MapToListHelper.MapToList<UsersDTO>);

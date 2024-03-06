@@ -3,6 +3,7 @@ using ProyectoFinal.Core.DTOs.Products;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Products;
 using ProyectoFinal.Core.Interfaces.IRepository.Products;
+using ProyectoFinal.Infraestructure.Helpers;
 
 namespace ProyectoFinal.Infraestructure.BLL.Products
 {
@@ -29,9 +30,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll CreateProducsRepository: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -42,14 +41,11 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
 
             try
             {
-
                 return await _productsRepository.DeleteProductsRepository(idProduct);
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll DeleteProducts: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
 
         }
@@ -66,9 +62,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll GetProductsByBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -84,9 +78,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll GetProductsBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -102,9 +94,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
             }
             catch (Exception ex)
             {
-                _LogService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll UpdateProductBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_LogService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 

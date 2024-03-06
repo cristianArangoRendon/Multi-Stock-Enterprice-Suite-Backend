@@ -18,9 +18,11 @@ namespace ActiveDirectoryBack.Infrastructure.Helpers
                     new Claim[]
                     {
                         new Claim("UserName", User.Names),
+                        new Claim("LastName", User.lastNames),
                         new Claim(ClaimTypes.Email, User.Email),
                         new Claim("UserId", User.IdUser.ToString()),
                         new Claim("IdRol", User.idRol.ToString()),
+                        new Claim("idCompany", User.idCompany.ToString()),
                     }
                     ),
                 Expires = DateTime.UtcNow.AddHours(Hours),

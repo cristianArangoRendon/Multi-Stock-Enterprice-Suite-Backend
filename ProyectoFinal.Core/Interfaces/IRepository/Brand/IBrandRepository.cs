@@ -10,5 +10,6 @@ namespace ProyectoFinal.Core.Interfaces.IRepository.Brand
         Task<ResponseDTO> CreateBrandRepository(string Description);
         Task<ResponseDTO> DeleteBrandRepository(int IdBrand);
         Task<ResponseDTO> UpdateBrandRepository(BrandDTO brandDTO);
+
     }
 }

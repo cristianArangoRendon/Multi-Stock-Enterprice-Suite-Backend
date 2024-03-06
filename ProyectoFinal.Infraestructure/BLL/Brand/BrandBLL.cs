@@ -3,6 +3,7 @@ using ProyectoFinal.Core.DTOs.Brand;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Brand;
 using ProyectoFinal.Core.Interfaces.IRepository.Brand;
+using ProyectoFinal.Infraestructure.Helpers;
 
 namespace ProyectoFinal.Infraestructure.BLL.Brand
 {
@@ -23,14 +24,11 @@ namespace ProyectoFinal.Infraestructure.BLL.Brand
 
             try
             {
-               
                 return await _repository.CreateBrandRepository(Description);
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll CreateBrandBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -45,9 +43,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Brand
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll DeleteBrandBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -62,9 +58,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Brand
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll GetBrandByIdBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -79,9 +73,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Brand
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll GetBrandByIdBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -97,9 +89,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Brand
             }
             catch (Exception ex)
             {
-                _logService.SaveLogsMessages("Se ha producido un error al ejecutar el Bll UpdateBrandBLL: " + ex.Message);
-                response.Message += ex.ToString();
-                return response;
+                return ExceptionHelper.HandleException(_logService, System.Reflection.MethodBase.GetCurrentMethod().Name, ex);
             }
         }
     }

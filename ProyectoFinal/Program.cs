@@ -122,24 +122,15 @@ builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly()) ;
 
 
 var app = builder.Build();
-
-
 {
     app.UseSwagger();
 
     app.UseSwaggerUI(
-         c =>
-         {
-             c.SwaggerEndpoint("/swagger/v1/swagger.json", "Proyecto Final Cristian Camilo Arango Rendon");
-             c.DefaultModelsExpandDepth(-1);
-         }); app.UseSwagger();
-
-    app.UseSwaggerUI(
-         c =>
-         {
-             c.SwaggerEndpoint("/swagger/v1/swagger.json", "Proyecto Final Cristian Camilo Arango Rendon");
-             c.DefaultModelsExpandDepth(-1);
-         });
+        c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Proyecto Final Cristian Camilo Arango Rendon");
+            c.DefaultModelsExpandDepth(-1);
+        }); app.UseSwagger();
 }
 
 
