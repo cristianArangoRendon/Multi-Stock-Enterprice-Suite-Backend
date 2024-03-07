@@ -25,7 +25,8 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
             {
                 if(idRol == 1)
                 {
-                    return await _companyRepository.CreateCompany(Description);
+                    Guid guid = Guid.NewGuid();
+                    return await _companyRepository.CreateCompany(Description, guid.ToString());
                 }
                 else
                 {
@@ -40,7 +41,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
             }
         }
 
-        public async Task<ResponseDTO> DeleteCompany(int IdCompany, int idRol)
+        public async Task<ResponseDTO> DeleteCompany(string guidCompany, int idRol)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
@@ -49,7 +50,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
             {
                 if(idRol == 1)
                 {
-                    return await _companyRepository.DeleteCompany(IdCompany);
+                    return await _companyRepository.DeleteCompany(guidCompany);
                 }
                 else
                 {
@@ -87,7 +88,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
             }
         }
 
-        public async Task<ResponseDTO> GetCompanyById(int IdCompany, int idRol)
+        public async Task<ResponseDTO> GetCompanyById(string  GuidCompany, int idRol)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
@@ -96,7 +97,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
             {
                 if(idRol == 1)
                 {
-                    return await _companyRepository.GetCompanyById(IdCompany);
+                    return await _companyRepository.GetCompanyById(GuidCompany);
                 }
                 else
                 {

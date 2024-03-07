@@ -4,5 +4,287 @@
         <name>ProyectoFinal</name>
     </assembly>
     <members>
+        <member name="M:ProyectoFinal.Controllers.Auth.generateToken(ProyectoFinal.Core.DTOs.Users.AuthDTO)">
+            <summary>
+            Generates a token for authentication.
+            </summary>
+            <param name="auth">
+                 Required:
+            - `Email`: The authentication data containing email.
+            - `password`: The authentication data containing password.
+            </param>
+            <remarks>This endpoint generates a token for authentication based on the provided email and password.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BrandController.CreateBrand(System.String)">
+            <summary>
+            Creates a new brand.
+            </summary>
+            <param name="Description">
+                Required: 
+            - `Description`: This endpoint creates a new brand with the provided description..
+            </param>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BrandController.GetBrand">
+            <summary>
+            Retrieves all brands.
+            </summary>
+            <remarks>
+            This endPoint does not require parameters.
+            </remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BrandController.GetBrandById(System.Int32)">
+            <summary>
+            Retrieves a brand by its ID.
+            </summary>
+            <remarks>
+            This endpoint retrieves a brand based on the provided brand ID.
+            </remarks>
+            <param name="IdBrand">
+                  Required: 
+              - `IdBrand`:   The ID of the brand to retrieve.
+            </param>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BrandController.DeleteBrand(System.Int32)">
+            <summary>
+            Deletes a brand by its ID.
+            </summary>
+            <remarks>
+            This endpoint deletes a brand based on the provided brand ID.
+            </remarks>
+            <param name="IdBrand">
+                   Required:
+              - `IdBrand`:   The ID of the brand to retrieve.
+            </param>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BrandController.UpdateBrand(ProyectoFinal.Core.DTOs.Brand.BrandDTO)">
+            <summary>
+            Updates a brand.
+            </summary>
+            <remarks>
+            This endpoint updates a brand with the provided brand data.
+            </remarks>
+            <param name="brandDTO">
+                    Required: 
+              - `IdBrand`:   The ID of the brand to retrieve.
+              - `Description`:   The description of the brand.
+            </param>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CategoryController.GetCategory">
+            <summary>
+            Retrieves all categories.
+            </summary>
+            <remarks>This endpoint retrieves all categories available in the system.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CategoryController.CreateCategory(System.String)">
+            <summary>
+            Creates a new category.
+            </summary>
+            <param name="category"> - `category`: The name of the category to create.</param>
+            <remarks>This endpoint creates a new category with the provided name.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CategoryController.DeleteCategory(System.Int32)">
+            <summary>
+            Deletes a category by its ID.
+            </summary>
+            <param name="idCategory">  - `idCategory`:The ID of the category to delete.</param>
+            <remarks>This endpoint deletes a category based on the provided category ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CategoryController.GetCategoryById(System.Int32)">
+            <summary>
+            Retrieves a category by its ID.
+            </summary>
+            <param name="idCategory">- `idCategory`: The ID of the category to retrieve.</param>
+            <remarks>This endpoint retrieves a category based on the provided category ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CategoryController.UpdateCategory(ProyectoFinal.Core.DTOs.category.categoryDTO)">
+            <summary>
+            Updates a category.
+            </summary>
+            <param name="category">
+                 Required:  
+            - `IdCategory`: The data of the category to be updated.
+            - `Description`:  The description of the category.
+            </param>
+            <remarks>This endpoint updates a category with the provided category data.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CompanyController.GetCompanies">
+            <summary>
+            Retrieves all companies.
+            </summary>
+            <remarks>This endpoint retrieves all companies available in the system.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CompanyController.GetCompany(System.String)">
+            <summary>
+            Retrieves a company by its ID.
+            </summary>
+            <param name="GuidCompany">- `idCompany`: The ID of the GuidCompany to retrieve.</param>
+            <remarks>This endpoint retrieves a company based on the provided GuidCompany ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CompanyController.CreateCompany(System.String)">
+            <summary>
+            Creates a new company.
+            </summary>
+            <param name="Description">- `Description`: The description of the company.</param>
+            <remarks>This endpoint creates a new company with the provided description.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CompanyController.PutCompany(System.Int32,System.String)">
+            <summary>
+            Updates a company.
+            </summary>
+            <param name="idCompany">- `idCompany`: The ID of the company to update.</param>
+            <param name="description">- `description`: The new description of the company.</param>
+            <remarks>This endpoint updates a company's description based on the provided company ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CompanyController.DeleteCompany(System.String)">
+            <summary>
+            Deletes a company by its ID.
+            </summary>
+            <param name="IdCompany">- `IdCompany`: The ID of the company to delete.</param>
+            <remarks>This endpoint deletes a company based on the provided company ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProductsController.CreateProduct(ProyectoFinal.Core.DTOs.Products.CreateProductDTO)">
+            <summary>
+            Creates a new product.
+            </summary>
+            <param name="products">
+            
+            - `Description`: The description of the product.
+            - `minimunQuantity`: The minimum quantity of the product.
+            - `stock`:  The current stock quantity of the product.
+            - `idCategory`: The ID of the category to which the product belongs.
+            - `idBrand`: The ID of the brand to which the product belongs.
+            - `idProvider`: The ID of the provider supplying the product.
+            - `uniqueCode`: The unique code assigned to the product.
+            - `idCompany`: The ID of the company to which the product belongs.
+            - `idWarehouse`: The ID of the warehouse where the product is located.
+            </param>
+            <remarks>This endpoint creates a new product with the provided data.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProductsController.DeleteProducts(System.Int32)">
+            <summary>
+            Deletes a product by its ID.
+            </summary>
+            <param name="idProducts">- `idProducts`: The ID of the product to delete.</param>
+            <remarks>This endpoint deletes a product based on the provided product ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProductsController.GetProductsById(System.Int32)">
+            <summary>
+            Retrieves a product by its ID.
+            </summary>
+            <param name="idProducts">- `idProducts`: The ID of the product to retrieve.</param>
+            <remarks>This endpoint retrieves a product based on the provided product ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProductsController.GetProducts">
+            <summary>
+            Retrieves all products.
+            </summary>
+            <remarks>This endpoint retrieves all products available in the system.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProductsController.UpdateProducts(ProyectoFinal.Core.DTOs.Products.ProductsDTO)">
+            <summary>
+            Updates a product.
+            </summary>
+            <param name="product">- `product`: The data of the product to be updated.</param>
+            <remarks>This endpoint updates a product with the provided product data.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProviderController.GetProvider">
+            <summary>
+            Retrieves all providers.
+            </summary>
+            <remarks>This endpoint retrieves all providers available in the system.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProviderController.GetProviderById(System.Int32)">
+            <summary>
+            Retrieves a provider by its ID.
+            </summary>
+            <param name="IdProvider">- `IdProvider`: The ID of the provider to retrieve.</param>
+            <remarks>This endpoint retrieves a provider based on the provided provider ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProviderController.DeleteProvider(System.Int32)">
+            <summary>
+            Deletes a provider by its ID.
+            </summary>
+            <param name="idProvider">- `idProvider`: The ID of the provider to delete.</param>
+            <remarks>This endpoint deletes a provider based on the provided provider ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProviderController.UpdateProvider(ProyectoFinal.Core.DTOs.Provider.ProviderDTO)">
+            <summary>
+            Updates a provider.
+            </summary>
+            <param name="provider">- `provider`: The data of the provider to be updated.</param>
+            <remarks>This endpoint updates a provider with the provided provider data.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.ProviderController.CreateProvider(System.String)">
+            <summary>
+            Creates a new provider.
+            </summary>
+             /// <param name="Description">
+            - `Description`: The description of the Provider.
+            </param>
+            <remarks>This endpoint creates a new provider with the provided name.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.RolController.GetRoles">
+            <summary>
+            Retrieves all roles.
+            </summary>
+            <remarks>This endpoint retrieves all roles available in the system.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.RolController.GetRoles(System.Int32)">
+            <summary>
+            Retrieves a role by its ID.
+            </summary>
+            <param name="idRol">- `idRol`: The ID of the role to retrieve.</param>
+            <remarks>This endpoint retrieves a role based on the provided role ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.RolController.UpdateRol(ProyectoFinal.Core.DTOs.Rol.RolDTO)">
+            <summary>
+            Updates a role.
+            </summary>
+            <param name="rol">
+            - `rol`: The data of the role to be updated.
+            - `Description`: The description of the Description.
+            </param>
+            <remarks>This endpoint updates a role with the provided role data.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.RolController.CreateRol(System.String)">
+            <summary>
+            Creates a new role.
+            </summary>
+            <param name="Description">- `Description`: The description of the role.</param>
+            <remarks>This endpoint creates a new role with the provided description.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.UsersController.CreateUser(ProyectoFinal.Core.DTOs.Users.CreateUserDTO)">
+            <summary>
+            Creates a new user.
+            </summary>
+            <param name="UserDTO">- `User`: The data of the user to create.</param>
+            <remarks>This endpoint creates a new user with the provided data.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.UsersController.DeleteUsuario(System.Int32)">
+            <summary>
+            Deletes a user by its ID.
+            </summary>
+            <param name="id">- `id`: The ID of the user to delete.</param>
+            <remarks>This endpoint deletes a user based on the provided user ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.UsersController.GetUsers">
+            <summary>
+            Retrieves users.
+            </summary>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.UsersController.UpdateUsersById(ProyectoFinal.Core.DTOs.Users.UsersDTO)">
+            <summary>
+            Updates a user by its ID.
+            </summary>
+            <param name="userDTO">- `userDTO`: The data of the user to be updated.</param>
+            <remarks>This endpoint updates a user with the provided user data.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.UsersController.GetUsersById(System.Int32)">
+            <summary>
+            Retrieves a user by its ID.
+            </summary>
+            <param name="idUser">- `idUser`: The ID of the user to retrieve.</param>
+            <remarks>This endpoint retrieves a user based on the provided user ID.</remarks>
+        </member>
     </members>
 </doc>

@@ -10,7 +10,6 @@
         public int idProvider { get; set; }
         public int uniqueCode { get; set; }
         public int idCompany { get; set; }
-        public int idWarehouse { get; set; }
 
     }
 }

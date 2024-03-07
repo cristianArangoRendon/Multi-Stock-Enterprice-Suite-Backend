@@ -12,22 +12,23 @@ namespace ProyectoFinal.Infraestructure.Repository.Company
 
         public CompanyRepository(IExecuteStoredProcedureServiceService service) => _ExecuteStoredProcedureServiceService = service;
         
-        public async Task<ResponseDTO> CreateCompany(string Description)
+        public async Task<ResponseDTO> CreateCompany(string Description, string guidCompany)
         {
             
             var parameters = new
             {
-                Description= Description
+                Description= Description,
+                GuidCompany = guidCompany,
             };
 
             return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("CreateCompany", parameters);
         }
 
-        public async Task<ResponseDTO> DeleteCompany(int IdCompany)
+        public async Task<ResponseDTO> DeleteCompany(string GuidCompany)
         {
             var parameters = new
             {
-                IdCompany = IdCompany
+                GuidCompany = GuidCompany
             };
 
              return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("DeleteCompany", parameters);
@@ -35,11 +36,11 @@ namespace ProyectoFinal.Infraestructure.Repository.Company
 
         public async Task<ResponseDTO> GetCompanies() => await _ExecuteStoredProcedureServiceService.ExecuteData("GetCompanies", MapToListHelper.MapToList<CompaniesDTO>);
 
-        public async Task<ResponseDTO> GetCompanyById(int IdCompany)
+        public async Task<ResponseDTO> GetCompanyById(string GuidCompany)
         {
             var parameters = new
             {
-                IdCompany = IdCompany
+                GuidCompany = GuidCompany
             };
 
             return await _ExecuteStoredProcedureServiceService.ExecuteSingleObjectStoredProcedure("GetCompanyById", parameters, MapToObjHelper.MapToObj<CompaniesDTO>);

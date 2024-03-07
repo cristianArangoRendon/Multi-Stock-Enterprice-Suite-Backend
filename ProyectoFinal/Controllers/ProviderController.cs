@@ -54,7 +54,14 @@ namespace ProyectoFinal.Controllers
         /// </param>
         /// <remarks>This endpoint creates a new provider with the provided name.</remarks>
         [HttpPost("/Provider")]
-        public async Task<ResponseDTO> CreateProvider(string Description) => await _ProviderBLL.CreateProviderBLL(Description);
+        public async Task<ResponseDTO> CreateProvider(string Description)
+        {
+
+            var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
+            int IdCompany = int.Parse(Company.Value.ToString());
+
+            return await _ProviderBLL.CreateProviderBLL(Description, IdCompany);
+        }
 
 
 

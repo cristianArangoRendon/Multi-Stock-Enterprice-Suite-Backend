@@ -9,7 +9,6 @@
         public int idCategory { get; set; }
         public int idBrand { get; set; }
         public int idProvider { get; set; }
-        public int uniqueCode { get; set; }
-        public int idWarehouse { get; set; }
+        public int UniqueCode { get; set; }
     }
 }

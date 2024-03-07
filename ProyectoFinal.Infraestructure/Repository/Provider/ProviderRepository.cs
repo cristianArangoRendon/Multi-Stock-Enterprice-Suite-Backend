@@ -14,11 +14,12 @@ namespace ProyectoFinal.Infraestructure.Repository.Provider
         public ProviderRepository(IExecuteStoredProcedureServiceService execute) => _ExecuteStoredProcedureService = execute;
 
 
-        public async Task<ResponseDTO> CreateProviderRepository(string Description)
+        public async Task<ResponseDTO> CreateProviderRepository(string Description, int idCompany)
         {
             var parameters = new
             {
-                Description = Description
+                Description = Description,
+                IdCompany = idCompany
             };
 
             return await _ExecuteStoredProcedureService.ExecuteStoredProcedure("dbo.CreateProvider", parameters);

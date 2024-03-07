@@ -28,14 +28,14 @@ namespace ProyectoFinal.Controllers
         /// <summary>
         /// Retrieves a company by its ID.
         /// </summary>
-        /// <param name="idCompany">- `idCompany`: The ID of the company to retrieve.</param>
-        /// <remarks>This endpoint retrieves a company based on the provided company ID.</remarks>
+        /// <param name="GuidCompany">- `idCompany`: The ID of the GuidCompany to retrieve.</param>
+        /// <remarks>This endpoint retrieves a company based on the provided GuidCompany ID.</remarks>
         [HttpGet("/Company/ById")]
-        public async Task<ResponseDTO> GetCompany(int idCompany) 
+        public async Task<ResponseDTO> GetCompany(string GuidCompany) 
         {
             var Rol = User.Claims.FirstOrDefault(x => x.Type == "IdRol");
             int IdRol = int.Parse(Rol.Value.ToString());
-            return await _CompanyBLL.GetCompanyById(idCompany, IdRol);
+            return await _CompanyBLL.GetCompanyById(GuidCompany, IdRol);
         }
 
         /// <summary>
@@ -74,11 +74,11 @@ namespace ProyectoFinal.Controllers
         /// <param name="IdCompany">- `IdCompany`: The ID of the company to delete.</param>
         /// <remarks>This endpoint deletes a company based on the provided company ID.</remarks>
         [HttpDelete("/Delete/Company")]
-        public async Task<ResponseDTO> DeleteCompany(int IdCompany)
+        public async Task<ResponseDTO> DeleteCompany(string GuidCompany)
         {
             var Rol = User.Claims.FirstOrDefault(x => x.Type == "IdRol");
             int IdRol = int.Parse(Rol.Value.ToString());
-            return await _CompanyBLL.DeleteCompany(IdCompany, IdRol);
+            return await _CompanyBLL.DeleteCompany(GuidCompany, IdRol);
         }
             
             

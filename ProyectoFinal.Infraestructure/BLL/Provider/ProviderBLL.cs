@@ -17,14 +17,14 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             _LogService = logService;
         }
 
-        public async Task<ResponseDTO> CreateProviderBLL(string providerDTO)
+        public async Task<ResponseDTO> CreateProviderBLL(string providerDTO, int idCompany)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
 
             try
             {
-                return await _providerRepository.CreateProviderRepository(providerDTO);
+                return await _providerRepository.CreateProviderRepository(providerDTO, idCompany);
             }
             catch (Exception ex)
             {
