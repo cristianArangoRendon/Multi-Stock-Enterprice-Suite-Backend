@@ -25,23 +25,25 @@ namespace ProyectoFinal.Infraestructure.Repository.Provider
             return await _ExecuteStoredProcedureService.ExecuteStoredProcedure("dbo.CreateProvider", parameters);
         }
 
-        public async Task<ResponseDTO> DeleteProviderRepository(int idProvider)
+        public async Task<ResponseDTO> DeleteProviderRepository(int idProvider, int idCompany)
         {
 
             var parameters = new
             {
-                idProvider = idProvider
+                idProvider = idProvider,
+                idCompany = idCompany
             };
 
             return await _ExecuteStoredProcedureService.ExecuteStoredProcedure("dbo.DeleteProvider", parameters);
         }
 
-        public async Task<ResponseDTO> GetProviderByIdRepository(int idProvider)
+        public async Task<ResponseDTO> GetProviderByIdRepository(int idProvider, int idCompany)
         {
 
             var parameters = new
             {
-                idProvider = idProvider
+                idProvider = idProvider,
+                idCompany = idCompany
             };
 
             return await _ExecuteStoredProcedureService.ExecuteSingleObjectStoredProcedure("dbo.GetProviderById", parameters, MapToObjHelper.MapToObj<ProviderDTO>);
@@ -49,9 +51,14 @@ namespace ProyectoFinal.Infraestructure.Repository.Provider
 
 
 
-        public async Task<ResponseDTO> GetProviderRepository()
+        public async Task<ResponseDTO> GetProviderRepository(int idCompany)
         {
-           return await _ExecuteStoredProcedureService.ExecuteData("dbo.GetProvider", MapToListHelper.MapToList<ProviderDTO>);
+            var parameters = new
+            {
+                idCompany = idCompany
+            };
+
+            return await _ExecuteStoredProcedureService.ExecuteDataStoredProcedure("dbo.GetProvider", parameters,MapToListHelper.MapToList<ProviderDTO>);
         }
             
        
@@ -60,12 +67,13 @@ namespace ProyectoFinal.Infraestructure.Repository.Provider
 
 
 
-        public async Task<ResponseDTO> UpdateProviderRepository(ProviderDTO providerDTO)
+        public async Task<ResponseDTO> UpdateProviderRepository(ProviderUpdateDTO providerDTO)
         {
             var parameters = new
             {
                 idProvider = providerDTO.idProvider,
-                Description = providerDTO.Description
+                Description = providerDTO.Description,
+                idCompany = providerDTO.idCompany,
             };
 
             return await _ExecuteStoredProcedureService.ExecuteStoredProcedure("dbo.UpdateProvider", parameters);

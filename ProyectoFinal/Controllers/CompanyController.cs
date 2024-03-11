@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Company;
 
@@ -6,6 +7,7 @@ namespace ProyectoFinal.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CompanyController : ControllerBase
     {
 
@@ -20,7 +22,7 @@ namespace ProyectoFinal.Controllers
         [HttpGet("/Companies")]
         public async Task<ResponseDTO> GetCompanies()
         {
-            var Rol = User.Claims.FirstOrDefault(x => x.Type == "IdRol");
+            var Rol = User.Claims.FirstOrDefault(x => x.Type == "idRol");
             int IdRol = int.Parse(Rol.Value.ToString());
 
             return await _CompanyBLL.GetCompanies(IdRol);
@@ -33,7 +35,7 @@ namespace ProyectoFinal.Controllers
         [HttpGet("/Company/ById")]
         public async Task<ResponseDTO> GetCompany(string GuidCompany) 
         {
-            var Rol = User.Claims.FirstOrDefault(x => x.Type == "IdRol");
+            var Rol = User.Claims.FirstOrDefault(x => x.Type == "idRol");
             int IdRol = int.Parse(Rol.Value.ToString());
             return await _CompanyBLL.GetCompanyById(GuidCompany, IdRol);
         }
@@ -46,7 +48,7 @@ namespace ProyectoFinal.Controllers
         [HttpPost("/Create/company")]
         public async Task<ResponseDTO> CreateCompany(string Description) 
         {
-            var Rol = User.Claims.FirstOrDefault(x => x.Type == "IdRol");
+            var Rol = User.Claims.FirstOrDefault(x => x.Type == "idRol");
             int IdRol = int.Parse(Rol.Value.ToString());
             return await _CompanyBLL.CreateCompany(Description, IdRol);
         }
@@ -61,7 +63,7 @@ namespace ProyectoFinal.Controllers
         [HttpPut("/Update/Company")]
         public async Task<ResponseDTO> PutCompany(int idCompany, string description)
         {
-            var Rol = User.Claims.FirstOrDefault(x => x.Type == "IdRol");
+            var Rol = User.Claims.FirstOrDefault(x => x.Type == "idRol");
             int IdRol = int.Parse(Rol.Value.ToString());
             return await _CompanyBLL.PutCompany(idCompany, description, IdRol);
         }
@@ -76,7 +78,7 @@ namespace ProyectoFinal.Controllers
         [HttpDelete("/Delete/Company")]
         public async Task<ResponseDTO> DeleteCompany(string GuidCompany)
         {
-            var Rol = User.Claims.FirstOrDefault(x => x.Type == "IdRol");
+            var Rol = User.Claims.FirstOrDefault(x => x.Type == "idRol");
             int IdRol = int.Parse(Rol.Value.ToString());
             return await _CompanyBLL.DeleteCompany(GuidCompany, IdRol);
         }

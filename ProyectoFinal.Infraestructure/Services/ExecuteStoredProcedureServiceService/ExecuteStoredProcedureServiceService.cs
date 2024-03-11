@@ -146,7 +146,7 @@ namespace ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceSe
                 _sqlCommandService.AddParameters(command, parameters);
                 using SqlDataReader reader = await command.ExecuteReaderAsync();
                 await reader.ReadAsync();
-                response.Message = "Successful operation.";
+                response.Message = reader.GetString(reader.GetOrdinal("ResultMessage"));
                 response.IsSuccess = true;
                 return response;
             }

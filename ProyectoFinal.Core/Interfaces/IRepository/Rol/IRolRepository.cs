@@ -9,7 +9,6 @@ namespace ProyectoFinal.Core.Interfaces.IRepository.Rol
         Task<ResponseDTO> GetRolesRepository();
         Task<ResponseDTO> GetRolByIdRepository(int RolId);
         Task<ResponseDTO> CreateRolRepository(string description);
-
         Task<ResponseDTO> UpdateRolRepository(RolDTO rol);
 
     }

@@ -62,7 +62,7 @@ builder.Services.AddAuthentication(d =>
                     var respuesta = new ResponseDTO
                     {
                         IsSuccess = false,
-                        Message = "No autorizado: Credenciales inválidas o acceso denegado.",
+                        Message = "Unauthorized: Invalid credentials or access denied.",
                         Data = null
                     };
 
@@ -86,7 +86,7 @@ builder.Services.AddSwaggerGen(c =>
 
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Proyecto Final Cristian Camilo Arango",
+        Title = "FINAL PROJECT",
         Version = "v1",
         Description = ""
     });
@@ -128,12 +128,10 @@ var app = builder.Build();
     app.UseSwaggerUI(
         c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Proyecto Final Cristian Camilo Arango Rendon");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "FINAL PROJECT, SENA");
             c.DefaultModelsExpandDepth(-1);
         }); app.UseSwagger();
 }
-
-
 
 app.UseHttpsRedirection();
 

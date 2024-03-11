@@ -1,4 +1,5 @@
 ﻿using ActiveDirectoryBack.Core.Interfaces.Services;
+using Microsoft.Extensions.Configuration;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Company;
 using ProyectoFinal.Core.Interfaces.IRepository.Company;
@@ -10,20 +11,22 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
     {
         private readonly ICompanyRepository _companyRepository;
         private readonly ILogService _logService;
-        public CompanyBLL(ICompanyRepository companyRepository, ILogService logService)
+        private readonly IConfiguration _configuration;
+        public CompanyBLL(ICompanyRepository companyRepository, ILogService logService, IConfiguration configuration)
         {
             _companyRepository = companyRepository;
             _logService = logService;
+            _configuration = configuration;
         }
         
         public async Task<ResponseDTO> CreateCompany(string Description, int idRol)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
-
+            int adminNumber = int.Parse(_configuration["SuperAdmin"]);
             try
             {
-                if(idRol == 1)
+                if(idRol == adminNumber)
                 {
                     Guid guid = Guid.NewGuid();
                     return await _companyRepository.CreateCompany(Description, guid.ToString());
@@ -44,11 +47,10 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
         public async Task<ResponseDTO> DeleteCompany(string guidCompany, int idRol)
         {
             ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = false;
-
+            int adminNumber = int.Parse(_configuration["SuperAdmin"]);
             try
             {
-                if(idRol == 1)
+                if(idRol == adminNumber)
                 {
                     return await _companyRepository.DeleteCompany(guidCompany);
                 }
@@ -69,10 +71,10 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
-
+            int adminNumber = int.Parse(_configuration["SuperAdmin"]);
             try
             {
-                if(idRol == 1)
+                if(idRol == adminNumber)
                 {
                     return await _companyRepository.GetCompanies();
                 }
@@ -92,10 +94,10 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
-
+            int adminNumber = int.Parse(_configuration["SuperAdmin"]);
             try
             {
-                if(idRol == 1)
+                if(idRol == adminNumber)
                 {
                     return await _companyRepository.GetCompanyById(GuidCompany);
                 }
@@ -118,10 +120,10 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
-
+            int adminNumber = int.Parse(_configuration["SuperAdmin"]);
             try
             {
-                if(IdRol == 1)
+                if(IdRol == adminNumber)
                 {
                     return await _companyRepository.PutCompany(idCompany, description);
                 }

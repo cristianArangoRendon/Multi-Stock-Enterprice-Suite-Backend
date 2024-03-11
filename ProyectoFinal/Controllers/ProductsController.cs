@@ -34,8 +34,14 @@ namespace ProyectoFinal.Controllers
         /// <remarks>This endpoint creates a new product with the provided data.</remarks>
         [HttpPost("/Product")]
 
-        public async Task<ResponseDTO> CreateProduct(CreateProductDTO products) => await _productsBLL.CreateProductBLL(products);
-
+        public async Task<ResponseDTO> CreateProduct(CreateProductDTO products)
+        {
+            var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");
+            int idUser = int.Parse(user.Value.ToString());
+            products.idUser = idUser;
+            return  await _productsBLL.CreateProductBLL(products);
+        }
+    
         /// <summary>
         /// Deletes a product by its ID.
         /// </summary>
@@ -50,14 +56,27 @@ namespace ProyectoFinal.Controllers
         /// <param name="idProducts">- `idProducts`: The ID of the product to retrieve.</param>
         /// <remarks>This endpoint retrieves a product based on the provided product ID.</remarks>
         [HttpGet("/Product/By/Id")]
-        public async Task<ResponseDTO> GetProductsById(int idProducts) => await _productsBLL.GetProductsByIdBLL(idProducts);
+        public async Task<ResponseDTO> GetProductsById(int idProducts)
+        {
+            var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");
+            int idUser = int.Parse(user.Value.ToString());
+            return await _productsBLL.GetProductsByIdBLL(idProducts, idUser);
+        }
+            
+           
 
         /// <summary>
         /// Retrieves all products.
         /// </summary>
         /// <remarks>This endpoint retrieves all products available in the system.</remarks>
         [HttpGet("/Products")]
-        public async Task<ResponseDTO> GetProducts() => await _productsBLL.GetProductsBLL();
+        public async Task<ResponseDTO> GetProducts()
+        {
+            var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");
+            int idUser = int.Parse(user.Value.ToString());
+            return await _productsBLL.GetProductsBLL(idUser);
+        } 
+            
 
         /// <summary>
         /// Updates a product.
@@ -65,7 +84,15 @@ namespace ProyectoFinal.Controllers
         /// <param name="product">- `product`: The data of the product to be updated.</param>
         /// <remarks>This endpoint updates a product with the provided product data.</remarks>
         [HttpPut("/Products")]
-        public async Task<ResponseDTO> UpdateProducts(ProductsDTO product) => await _productsBLL.UpdateProductBLL(product);
+        public async Task<ResponseDTO> UpdateProducts(ProductsDTO product)
+        {
+            var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");
+            int idUser = int.Parse(user.Value.ToString());
+            product.idUser = idUser;
+            return await _productsBLL.UpdateProductBLL(product);
+        }
+            
+          
 
 
 

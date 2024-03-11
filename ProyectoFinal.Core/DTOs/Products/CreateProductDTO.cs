@@ -8,8 +8,8 @@
         public int idCategory { get; set; }
         public int idBrand { get; set; }
         public int idProvider { get; set; }
-        public int uniqueCode { get; set; }
-        public int idCompany { get; set; }
+        public string uniqueCode { get; set; }
+        public int idUser { get; set; }
 
     }
 }

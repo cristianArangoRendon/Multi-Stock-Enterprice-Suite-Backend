@@ -33,14 +33,14 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
         }
 
 
-        public async Task<ResponseDTO> DeleteProviderBLL(int idProvider)
+        public async Task<ResponseDTO> DeleteProviderBLL(int idProvider, int idCompany)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
 
             try
             {
-                return await _providerRepository.DeleteProviderRepository(idProvider);
+                return await _providerRepository.DeleteProviderRepository(idProvider, idCompany);
             }
             catch (Exception ex)
             {
@@ -48,14 +48,14 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
         }
 
-        public async Task<ResponseDTO> GetProviderBLL( )
+        public async Task<ResponseDTO> GetProviderBLL(int idCompany)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
 
             try
             {
-                return await _providerRepository.GetProviderRepository();
+                return await _providerRepository.GetProviderRepository(idCompany);
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
         }
 
-        public async Task<ResponseDTO> GetProviderByIdBLL(int IdProvider)
+        public async Task<ResponseDTO> GetProviderByIdBLL(int IdProvider, int idCompany)
         {
 
             ResponseDTO response = new ResponseDTO();
@@ -71,7 +71,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
 
             try
             {
-                return await _providerRepository.GetProviderByIdRepository(IdProvider);
+                return await _providerRepository.GetProviderByIdRepository(IdProvider, idCompany);
             }
             catch (Exception ex)
             {
@@ -79,7 +79,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Provider
             }
         }
 
-        public async Task<ResponseDTO> UpdateProviderBLL(ProviderDTO providerDTO)
+        public async Task<ResponseDTO> UpdateProviderBLL(ProviderUpdateDTO providerDTO)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;

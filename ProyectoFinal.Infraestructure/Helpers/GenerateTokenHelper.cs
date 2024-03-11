@@ -17,12 +17,15 @@ namespace ActiveDirectoryBack.Infrastructure.Helpers
                 Subject = new ClaimsIdentity(
                     new Claim[]
                     {
-                        new Claim("UserName", User.Names),
-                        new Claim("LastName", User.lastNames),
-                        new Claim(ClaimTypes.Email, User.Email),
+                        new Claim("UserName", User.Names ?? ""),
+                        new Claim("LastName", User.lastNames ?? ""),
+                        new Claim(ClaimTypes.Email, User.Email ?? ""),
                         new Claim("UserId", User.idUser.ToString()),
-                        new Claim("IdRol", User.idRol.ToString()),
                         new Claim("idCompany", User.idCompany.ToString()),
+                        new Claim("idRol", User.idRol.ToString()),
+                        new Claim("gender", User.gender.ToString() ?? ""),
+                        new Claim("image", User.image?.ToString() ?? ""),
+                        new Claim("lastLoginDate", User.lastLoginDate.ToString() ?? "")
                     }
                     ),
                 Expires = DateTime.UtcNow.AddHours(Hours),

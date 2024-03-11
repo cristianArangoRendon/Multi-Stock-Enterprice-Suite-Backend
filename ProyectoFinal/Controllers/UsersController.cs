@@ -7,7 +7,6 @@ using ProyectoFinal.Core.Interfaces.IBLL.Users;
 namespace ProyectoFinal.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -25,7 +24,7 @@ namespace ProyectoFinal.Controllers
         {
             var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
             int IdCompany = int.Parse(Company.Value.ToString());
-            UserDTO.idCompany = IdCompany;  
+            UserDTO.IdCompany = IdCompany;  
             return await _usersBLL.CreateUser(UserDTO);
         }
 

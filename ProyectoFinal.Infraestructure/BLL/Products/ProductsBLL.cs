@@ -25,7 +25,8 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
 
             try
             {
-              
+                Guid uniqueCode = Guid.NewGuid();
+                products.uniqueCode = uniqueCode.ToString();
                 return await _productsRepository.CreateProducsRepository(products);
             }
             catch (Exception ex)
@@ -50,7 +51,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
 
         }
 
-        public async Task<ResponseDTO> GetProductsByIdBLL(int IdProducts)
+        public async Task<ResponseDTO> GetProductsByIdBLL(int IdProducts, int idUser)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
@@ -58,7 +59,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
             try
             {
 
-                return await _productsRepository.GetProductsByIdRepository(IdProducts);
+                return await _productsRepository.GetProductsByIdRepository(IdProducts, idUser);
             }
             catch (Exception ex)
             {
@@ -66,15 +67,14 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
             }
         }
 
-        public async Task<ResponseDTO> GetProductsBLL()
+        public async Task<ResponseDTO> GetProductsBLL(int idUser)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
 
             try
             {
-
-                return await _productsRepository.GetProductsRepository();
+                return await _productsRepository.GetProductsRepository(idUser);
             }
             catch (Exception ex)
             {
@@ -89,7 +89,8 @@ namespace ProyectoFinal.Infraestructure.BLL.Products
 
             try
             {
-
+                Guid uniqueCode = Guid.NewGuid();
+                products.UniqueCode = uniqueCode.ToString();
                 return await _productsRepository.UpdateProductRepository(products);
             }
             catch (Exception ex)

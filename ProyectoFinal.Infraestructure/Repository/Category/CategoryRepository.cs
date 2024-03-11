@@ -9,10 +9,8 @@ namespace ProyectoFinal.Infraestructure.Repository.Category
     public class CategoryRepository : ICategoryRepository
     {
         private readonly IExecuteStoredProcedureServiceService _executeStoredProcedureService;
-        public CategoryRepository(IExecuteStoredProcedureServiceService executeStoredProcedureService)
-        {
-            _executeStoredProcedureService = executeStoredProcedureService;
-        }
+        public CategoryRepository(IExecuteStoredProcedureServiceService executeStoredProcedureService) => _executeStoredProcedureService = executeStoredProcedureService;
+      
 
         public async Task<ResponseDTO> CreateCategoryRepository(string description)
         {

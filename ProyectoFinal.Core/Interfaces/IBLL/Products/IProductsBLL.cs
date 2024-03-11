@@ -7,8 +7,8 @@ namespace ProyectoFinal.Core.Interfaces.IBLL.Products
     {
         Task<ResponseDTO> CreateProductBLL(CreateProductDTO products);
         Task<ResponseDTO> UpdateProductBLL(ProductsDTO products);
-        Task<ResponseDTO> GetProductsBLL();
-        Task<ResponseDTO> GetProductsByIdBLL(int IdProducts);
+        Task<ResponseDTO> GetProductsBLL(int idUser);
+        Task<ResponseDTO> GetProductsByIdBLL(int IdProducts, int idUser);
         Task<ResponseDTO> DeleteProductBLL(int IdProducts);
     }
 }

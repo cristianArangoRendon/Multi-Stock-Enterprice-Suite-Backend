@@ -207,7 +207,7 @@
             <param name="idProvider">- `idProvider`: The ID of the provider to delete.</param>
             <remarks>This endpoint deletes a provider based on the provided provider ID.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.ProviderController.UpdateProvider(ProyectoFinal.Core.DTOs.Provider.ProviderDTO)">
+        <member name="M:ProyectoFinal.Controllers.ProviderController.UpdateProvider(ProyectoFinal.Core.DTOs.Provider.ProviderUpdateDTO)">
             <summary>
             Updates a provider.
             </summary>

@@ -2,7 +2,6 @@
 using ActiveDirectoryBack.Infrastructure.Helpers;
 using ProyectoFinal.Core.DTOs.Products;
 using ProyectoFinal.Core.DTOs.Response;
-using ProyectoFinal.Core.Interfaces.DataContext;
 using ProyectoFinal.Core.Interfaces.IRepository.Products;
 using ProyectoFinal.Core.Interfaces.IServices;
 using ProyectoFinal.Infraestructure.Helpers;
@@ -14,7 +13,7 @@ namespace ProyectoFinal.Infraestructure.Repository.Products
 
         private readonly IExecuteStoredProcedureServiceService _ExecuteStoredProcedureService;
 
-        public ProductsRepository(IDataContextProyectoFinal dataContext, ILogService logService, IExecuteStoredProcedureServiceService executeStoredProcedureServiceService) => _ExecuteStoredProcedureService = executeStoredProcedureServiceService;
+        public ProductsRepository( ILogService logService, IExecuteStoredProcedureServiceService executeStoredProcedureServiceService) => _ExecuteStoredProcedureService = executeStoredProcedureServiceService;
         
 
         public async Task<ResponseDTO> CreateProducsRepository(CreateProductDTO products)
@@ -34,19 +33,27 @@ namespace ProyectoFinal.Infraestructure.Repository.Products
             return await _ExecuteStoredProcedureService.ExecuteStoredProcedure("dbo.DeleteProduct", parameters);
         }
 
-        public async Task<ResponseDTO> GetProductsByIdRepository(int IdProducts)
+        public async Task<ResponseDTO> GetProductsByIdRepository(int IdProducts, int IdUser)
         {
 
             var parameters = new
             {
-                IdProduct = IdProducts
+                IdProduct = IdProducts,
+                IdUser = IdUser
             };
 
             return await _ExecuteStoredProcedureService.ExecuteSingleObjectStoredProcedure("dbo.GetProductsById", parameters, MapToObjHelper.MapToObj<ProductsDTO>);
         }
 
 
-        public async Task<ResponseDTO> GetProductsRepository() =>  await _ExecuteStoredProcedureService.ExecuteData("dbo.GetProducts", MapToListHelper.MapToList<ProductsDTO>);
+        public async Task<ResponseDTO> GetProductsRepository(int idUser)
+        {
+            var parameters = new
+            {
+                idUser = idUser
+            };
+           return await _ExecuteStoredProcedureService.ExecuteDataStoredProcedure("dbo.GetProducts",parameters, MapToListHelper.MapToList<ProductsDTO>);
+        }
         
 
         public async Task<ResponseDTO> UpdateProductRepository(ProductsDTO products)

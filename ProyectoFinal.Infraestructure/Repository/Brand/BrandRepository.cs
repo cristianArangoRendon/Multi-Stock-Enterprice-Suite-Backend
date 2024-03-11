@@ -9,11 +9,8 @@ namespace ProyectoFinal.Infraestructure.Repository.Brand
     public  class BrandRepository : IBrandRepository
     {
         private readonly IExecuteStoredProcedureServiceService _executeStoredProcedureService;
-        public BrandRepository(IExecuteStoredProcedureServiceService Service)
-        {
+        public BrandRepository(IExecuteStoredProcedureServiceService Service)  =>   _executeStoredProcedureService = Service;
 
-            _executeStoredProcedureService = Service;
-        }
 
         public async Task<ResponseDTO> CreateBrandRepository( string Description)
         {

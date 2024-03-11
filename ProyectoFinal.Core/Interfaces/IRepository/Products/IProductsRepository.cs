@@ -7,8 +7,8 @@ namespace ProyectoFinal.Core.Interfaces.IRepository.Products
     {
         Task<ResponseDTO> CreateProducsRepository(CreateProductDTO products);
         Task<ResponseDTO> UpdateProductRepository(ProductsDTO products);
-        Task<ResponseDTO> GetProductsRepository();
-        Task<ResponseDTO> GetProductsByIdRepository(int IdProducts);
+        Task<ResponseDTO> GetProductsRepository(int idUser);
+        Task<ResponseDTO> GetProductsByIdRepository(int IdProducts, int IdUser);
         Task<ResponseDTO> DeleteProductsRepository(int Idproducts);
     }
 }

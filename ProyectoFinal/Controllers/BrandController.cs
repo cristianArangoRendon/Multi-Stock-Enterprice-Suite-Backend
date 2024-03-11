@@ -89,7 +89,5 @@ namespace ProyectoFinal.Controllers
         [HttpPut("/Brand")]
         public async Task<ResponseDTO> UpdateBrand(BrandDTO brandDTO) => await _BrandBLL.UpdateBrandBLL(brandDTO);
 
-
-
     }
 }
