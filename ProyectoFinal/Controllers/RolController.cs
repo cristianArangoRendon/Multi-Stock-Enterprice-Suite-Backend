@@ -49,7 +49,5 @@ namespace ProyectoFinal.Controllers
         [HttpPost("/Rol")]
         public async Task<ResponseDTO> CreateRol(string Description) => await _RolBll.CreateRolBLL(Description);
 
-
-
     }
 }

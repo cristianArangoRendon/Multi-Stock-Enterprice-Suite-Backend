@@ -74,10 +74,8 @@ namespace ProyectoFinal.Controllers
         [HttpPost("/Provider")]
         public async Task<ResponseDTO> CreateProvider(string Description)
         {
-
             var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
             int IdCompany = int.Parse(Company.Value.ToString());
-
             return await _ProviderBLL.CreateProviderBLL(Description, IdCompany);
         }
 

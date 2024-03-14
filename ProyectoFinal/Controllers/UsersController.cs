@@ -8,6 +8,7 @@ namespace ProyectoFinal.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUserBLL _usersBLL;
@@ -48,7 +49,6 @@ namespace ProyectoFinal.Controllers
         {
             var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
             int IdCompany = int.Parse(Company.Value.ToString());
-
             return await _usersBLL.GetUser(IdCompany);
         }
 
@@ -58,8 +58,11 @@ namespace ProyectoFinal.Controllers
         /// <param name="userDTO">- `userDTO`: The data of the user to be updated.</param>
         /// <remarks>This endpoint updates a user with the provided user data.</remarks>
         [HttpPut("/User")]
-        public async Task<ResponseDTO> UpdateUsersById(UsersDTO userDTO)
+        public async Task<ResponseDTO> UpdateUsersById(UpdateUserDTO userDTO)
         {
+            var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
+            int IdCompany = int.Parse(Company.Value.ToString());
+            userDTO.IdCompany = IdCompany;
             return await _usersBLL.UpdateUser(userDTO);
         }
 
