@@ -272,7 +272,7 @@
             Retrieves users.
             </summary>
         </member>
-        <member name="M:ProyectoFinal.Controllers.UsersController.UpdateUsersById(ProyectoFinal.Core.DTOs.Users.UsersDTO)">
+        <member name="M:ProyectoFinal.Controllers.UsersController.UpdateUsersById(ProyectoFinal.Core.DTOs.Users.UpdateUserDTO)">
             <summary>
             Updates a user by its ID.
             </summary>

@@ -52,5 +52,17 @@ namespace ProyectoFinal.Controllers
             int idUser = int.Parse(user.Value.ToString());
             return await _bill.DeleteBill(idbill,idUser);
         }
+
+        [HttpPut("/Bill")]
+        public async Task<ResponseDTO> UpdateBill(UpdateBill update)
+        {
+            var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");
+            int idUser = int.Parse(user.Value.ToString());
+            var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
+            int IdCompany = int.Parse(Company.Value.ToString());
+            update.idCompany = IdCompany;
+            update.idUser = idUser;
+            return await _bill.UpdateBill(update);
+        }
     }
 }

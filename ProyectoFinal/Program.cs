@@ -7,6 +7,7 @@ using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IServices;
 using ProyectoFinal.Infraestructure.IoC;
 using ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceService;
+using ProyectoFinal.Infraestructure.Services.SendEmailService;
 using ProyectoFinal.Infraestructure.Services.SqlCommandService;
 using Swashbuckle.AspNetCore.Filters;
 using System.Net;
@@ -25,6 +26,7 @@ var configuration = new ConfigurationBuilder()
 services.AddProyectoFinal(configuration);
 services.AddScoped<IExecuteStoredProcedureServiceService, ExecuteStoredProcedureServiceService>();
 services.AddScoped<ISqlCommandService, SqlCommandService>();
+services.AddScoped<ISendEmailService, SendEmailService>();
 var appSettingSection = configuration.GetSection("AppSettings");
 builder.Services.Configure<AppSettings>(appSettingSection);
 
