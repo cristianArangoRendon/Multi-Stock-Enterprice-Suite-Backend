@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.category;
 using ProyectoFinal.Core.Interfaces.IBLL.Category;
+using ProyectoFinal.ErrorResponse.Doc.Brand;
+using ProyectoFinal.ErrorResponse.Doc.Category;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -28,6 +30,7 @@ namespace ProyectoFinal.Controllers
         /// </summary>
         /// <remarks>This endpoint retrieves all categories available in the system.</remarks>
         [HttpGet("/Categories")]
+        [SwaggerResponseExample(200, (typeof(GetCategoriesDoc)))]
         public async Task<IActionResult> GetCategory()
         {
             var response = await _categoryBll.GetCategoryBLL();
@@ -43,6 +46,7 @@ namespace ProyectoFinal.Controllers
         /// - `category`:The name of the category to create.</param>
         /// <remarks>This endpoint creates a new category with the provided name.</remarks>
         [HttpPost("/Category")]
+        [SwaggerResponseExample(200, (typeof(CreateCategoryDoc)))]
         public async Task<IActionResult> CreateCategory(string category)
         {
             var response = await _categoryBll.CreateCategoryBLL(category);
@@ -58,6 +62,7 @@ namespace ProyectoFinal.Controllers
         /// - `idCategory`:The ID of the category to delete.</param>
         /// <remarks>This endpoint deletes a category based on the provided category ID.</remarks>
         [HttpDelete("/Category")]
+        [SwaggerResponseExample(200, (typeof(DeleteCategoryDoc)))]
         public async Task<IActionResult> DeleteCategory(int idCategory)
         {
             var response = await _categoryBll.DeleteCategoryBLL(idCategory);
@@ -74,6 +79,7 @@ namespace ProyectoFinal.Controllers
         ///</param>
         /// <remarks>This endpoint retrieves a category based on the provided category ID.</remarks>
         [HttpGet("/Category/By/Id")]
+        [SwaggerResponseExample(200, (typeof(GetCategoryById)))]
         public async Task<IActionResult> GetCategoryById(int idCategory)
         {
             var response = await _categoryBll.GetCategoryByIdBLL(idCategory);
@@ -91,6 +97,7 @@ namespace ProyectoFinal.Controllers
         /// </param>
         /// <remarks>This endpoint updates a category with the provided category data.</remarks>
         [HttpPut("/Category")]
+        [SwaggerResponseExample(200, (typeof(UpdateCategoryDoc)))]
         public async Task<IActionResult> UpdateCategory(categoryDTO category)
         {
             var response = await _categoryBll.UpdateCategoryBLL(category);

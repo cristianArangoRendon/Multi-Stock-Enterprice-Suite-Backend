@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.City;
+using ProyectoFinal.ErrorResponse.Doc.Category;
+using ProyectoFinal.ErrorResponse.Doc.Cities;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -30,6 +32,7 @@ namespace ProyectoFinal.Controllers
         /// <remarks>This endpoint retrieves a list of cities available in the system.</remarks>
         /// <returns>A list of cities.</returns>
         [HttpGet("/Cities")]
+        [SwaggerResponseExample(200, (typeof(GetCitiesDoc)))]
         public async Task<IActionResult> GetCities()
         {
             var response = await _CitiesBLL.GetCities();
@@ -50,6 +53,7 @@ namespace ProyectoFinal.Controllers
         /// <remarks>This endpoint retrieves a city from the system based on its unique identifier.</remarks>
         /// <returns>The city with the specified identifier.</returns>
         [HttpGet("/City/ById")]
+        [SwaggerResponseExample(200, (typeof(GetCityByIdDoc)))]
         public async Task<IActionResult> GetCityById(int idCity)
         {
             var response = await _CitiesBLL.CityById(idCity);
@@ -71,6 +75,7 @@ namespace ProyectoFinal.Controllers
         /// <remarks>This endpoint deletes a city from the system based on its unique identifier.</remarks>
         /// <returns>A response indicating the success or failure of the deletion operation.</returns>
         [HttpDelete("/City")]
+        [SwaggerResponseExample(200, (typeof(DeleteCityDoc)))]
         public async Task<IActionResult> DeleteCity(int idCity)
         {
             var response = await _CitiesBLL.DeleteCity(idCity);
@@ -95,6 +100,7 @@ namespace ProyectoFinal.Controllers
         /// <remarks>This endpoint updates a city in the system based on its unique identifier and the provided description.</remarks>
         /// <returns>A response indicating the success or failure of the update operation.</returns>
         [HttpPut("/City")]
+        [SwaggerResponseExample(200, (typeof(UpdateCityDoc)))]
         public async Task<IActionResult> UpdateCity(int idCity, string Description)
         {
             var response = await _CitiesBLL.UpdateCity(idCity, Description);
@@ -116,6 +122,7 @@ namespace ProyectoFinal.Controllers
         /// <remarks>This endpoint creates a new city in the system with the provided description.</remarks>
         /// <returns>A response indicating the success or failure of the creation operation.</returns>
         [HttpPost("/City")]
+        [SwaggerResponseExample(200, (typeof(CreateCityDoc)))]
         public async Task<IActionResult> CreateCity(string Description)
         {
             var response = await _CitiesBLL.CreateCity(Description);
