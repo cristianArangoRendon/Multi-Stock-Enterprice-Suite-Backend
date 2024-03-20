@@ -7,9 +7,9 @@ namespace ProyectoFinal.Core.Interfaces.IBLL.Users
     {
         Task<ResponseDTO> CreateUser(CreateUserDTO userDTO);
         Task<ResponseDTO> DeleteUser(int id);
-        Task<ResponseDTO> UpdateUser(UsersDTO userDTO);
+        Task<ResponseDTO> UpdateUser(UpdateUserDTO update);
         Task<ResponseDTO> GetUser(int idUsers);
-        Task<ResponseDTO> IGetUserById(int id);
+        Task<ResponseDTO> GetUserById(int idUser, int idCompany);
         Task<ResponseDTO> Auth(string user, string password);
     }
 }

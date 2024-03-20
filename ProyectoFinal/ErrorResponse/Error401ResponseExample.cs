@@ -1,6 +1,6 @@
 ﻿using Swashbuckle.AspNetCore.Filters;
 
-namespace ActiveDirectoryBack.SwaggerExamples.ErrorResponse
+namespace ProyectoFinal.SwaggerExample.ErrorResponse
 {
     public class Error401ResponseExample : IExamplesProvider<object>
     {
@@ -9,7 +9,7 @@ namespace ActiveDirectoryBack.SwaggerExamples.ErrorResponse
             return new
             {
                 IsSuccess = false,
-                Message = "No autorizado: Credenciales inválidas o acceso denegado."
+                Message = "Unauthorized: Invalid credentials or access denied."
             };
         }
     }

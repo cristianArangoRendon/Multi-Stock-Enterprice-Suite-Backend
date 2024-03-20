@@ -10,6 +10,7 @@ namespace ProyectoFinal.Infraestructure.Services.LogService
             public static IServiceCollection AddServices(this IServiceCollection services)
             {
                 services.AddScoped<ILogService, LogService>();
+               
 
             return services;
             }

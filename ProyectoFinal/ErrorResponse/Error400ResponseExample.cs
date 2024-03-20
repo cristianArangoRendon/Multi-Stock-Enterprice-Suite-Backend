@@ -1,6 +1,6 @@
 ﻿using Swashbuckle.AspNetCore.Filters;
 
-namespace ActiveDirectoryBack.SwaggerExamples.ErrorResponse
+namespace ProyectoFinal.SwaggerExample.ErrorResponse
 {
     public class Error400ResponseExample : IExamplesProvider<object>
     {
@@ -9,7 +9,7 @@ namespace ActiveDirectoryBack.SwaggerExamples.ErrorResponse
             return new
             {
                 IsSuccess = false,
-                Message = "Bad request, se envían parámetros incorrecto"
+                Message = "Bad request, incorrect parameters sent"
             };
         }
     }

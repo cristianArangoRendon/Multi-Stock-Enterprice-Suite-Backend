@@ -14,6 +14,7 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 
+
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 var configuration = new ConfigurationBuilder()
@@ -82,6 +83,7 @@ builder.Services.AddAuthentication(d =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+
 builder.Services.AddSwaggerGen(c =>
 {
 
@@ -114,14 +116,14 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 
-    c.ExampleFilters();
 
+
+    c.ExampleFilters();
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
 });
-builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly()) ;
-
+builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 
 var app = builder.Build();
 {

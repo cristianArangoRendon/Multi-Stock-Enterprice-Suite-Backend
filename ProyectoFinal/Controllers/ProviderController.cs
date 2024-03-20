@@ -3,85 +3,146 @@ using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.Provider;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Provider;
+using ProyectoFinal.SwaggerExample.ErrorResponse;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace ProyectoFinal.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class ProviderController : Controller
+    [SwaggerResponseExample(401, typeof(Error401ResponseExample))]
+    [ProducesResponseType(typeof(Response200Example), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(Error500ResponseExample), StatusCodes.Status500InternalServerError)]
+    [SwaggerResponseExample(500, typeof(Error500ResponseExample))]
+    [ProducesResponseType(typeof(Error400ResponseExample), StatusCodes.Status400BadRequest)]
+    [SwaggerResponseExample(400, typeof(Error400ResponseExample))]
+    public class ProviderController : ControllerBase
     {
-        private readonly IProviderBLL _ProviderBLL;
+        private readonly IProviderBLL _providerBLL;
 
-        public ProviderController(IProviderBLL providerBLL) => _ProviderBLL = providerBLL;
-
+        public ProviderController(IProviderBLL providerBLL)
+        {
+            _providerBLL = providerBLL;
+        }
         /// <summary>
-        /// Retrieves all providers.
+        /// Retrieves provider information.
         /// </summary>
-        /// <remarks>This endpoint retrieves all providers available in the system.</remarks>
+        /// <remarks>
+        /// This endpoint retrieves information about providers associated with the current company.
+        /// </remarks>
+        /// <returns>A response containing information about providers associated with the current company.</returns>
+
         [HttpGet("/Provider")]
-        public async Task<ResponseDTO> GetProvider()
+        public async Task<IActionResult> GetProvider()
         {
-            var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
-            int IdCompany = int.Parse(Company.Value.ToString());
-            return  await _ProviderBLL.GetProviderBLL(IdCompany);
+            var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
+            int idCompany = int.Parse(company.Value.ToString());
+
+            var response = await _providerBLL.GetProviderBLL(idCompany);
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
         }
 
         /// <summary>
-        /// Retrieves a provider by its ID.
+        /// Retrieves provider information by its identifier.
         /// </summary>
-        /// <param name="IdProvider">- `IdProvider`: The ID of the provider to retrieve.</param>
-        /// <remarks>This endpoint retrieves a provider based on the provided provider ID.</remarks>
+        /// <param name="IdProvider">
+        /// - `idProvider`:The identifier of the provider to retrieve.</param>
+        /// <remarks>
+        /// This endpoint retrieves information about a specific provider associated with the current company.
+        /// </remarks>
+        /// <returns>A response containing information about the specified provider.</returns>
+
         [HttpGet("/Provider/By/Id")]
-        public async Task<ResponseDTO> GetProviderById(int IdProvider)
+        public async Task<IActionResult> GetProviderById(int IdProvider)
         {
-            var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
-            int IdCompany = int.Parse(Company.Value.ToString());
-            return  await _ProviderBLL.GetProviderByIdBLL(IdProvider, IdCompany);
+            var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
+            int idCompany = int.Parse(company.Value.ToString());
+
+            var response = await _providerBLL.GetProviderByIdBLL(IdProvider, idCompany);
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
         }
+
         /// <summary>
-        /// Deletes a provider by its ID.
+        /// Deletes a provider by its identifier.
         /// </summary>
-        /// <param name="idProvider">- `idProvider`: The ID of the provider to delete.</param>
-        /// <remarks>This endpoint deletes a provider based on the provided provider ID.</remarks>
+        /// <param name="idProvider">
+        /// - `idProvider`:The identifier of the provider to delete.</param>
+        /// <remarks>
+        /// This endpoint deletes a provider associated with the current company based on its unique identifier.
+        /// </remarks>
+        /// <returns>A response indicating the success or failure of the deletion operation.</returns>
+
         [HttpDelete("/Provider")]
-        public async Task<ResponseDTO> DeleteProvider(int idProvider)
+        public async Task<IActionResult> DeleteProvider(int idProvider)
         {
-            var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
-            int IdCompany = int.Parse(Company.Value.ToString());
-            return await _ProviderBLL.DeleteProviderBLL(idProvider, IdCompany);
+            var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
+            int idCompany = int.Parse(company.Value.ToString());
+
+            var response = await _providerBLL.DeleteProviderBLL(idProvider, idCompany);
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
         }
         /// <summary>
-        /// Updates a provider.
+        /// Updates provider information.
         /// </summary>
-        /// <param name="provider">- `provider`: The data of the provider to be updated.</param>
-        /// <remarks>This endpoint updates a provider with the provided provider data.</remarks>
+        /// <param name="provider">
+        /// - `idProvider`: The identifier of the provider to update.
+        /// - `Description`: The updated description of the provider.
+        /// - `idCompany`: The identifier of the company associated with the provider.
+        /// </param>
+        /// <remarks>
+        /// This endpoint updates provider information based on the provided data.
+        /// It requires authorization to determine the company associated with the update operation.
+        /// </remarks>
+        /// <returns>A response indicating the success or failure of the update operation.</returns>
         [HttpPut("/Provider")]
-        public async Task<ResponseDTO> UpdateProvider(ProviderUpdateDTO provider)
+        public async Task<IActionResult> UpdateProvider(ProviderUpdateDTO provider)
         {
-            var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
-            int IdCompany = int.Parse(Company.Value.ToString());
-            provider.idCompany = IdCompany;
-            return await _ProviderBLL.UpdateProviderBLL(provider);
+            var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
+            int idCompany = int.Parse(company.Value.ToString());
+            provider.idCompany = idCompany;
+
+            var response = await _providerBLL.UpdateProviderBLL(provider);
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
         }
+
         /// <summary>
         /// Creates a new provider.
         /// </summary>
-        ///  /// <param name="Description">
-        /// - `Description`: The description of the Provider.
-        /// </param>
-        /// <remarks>This endpoint creates a new provider with the provided name.</remarks>
+        /// <param name="Description">
+        /// - `Description`:The description of the Provider.</param>
+        /// <remarks>
+        /// This endpoint creates a new provider with the provided description.
+        /// It requires authorization to determine the company associated with the creation operation.
+        /// </remarks>
         [HttpPost("/Provider")]
-        public async Task<ResponseDTO> CreateProvider(string Description)
+        public async Task<IActionResult> CreateProvider(string Description)
         {
-            var Company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
-            int IdCompany = int.Parse(Company.Value.ToString());
-            return await _ProviderBLL.CreateProviderBLL(Description, IdCompany);
+            var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
+            int idCompany = int.Parse(company.Value.ToString());
+
+            var response = await _providerBLL.CreateProviderBLL(Description, idCompany);
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
         }
-
-
-
-
-
     }
 }

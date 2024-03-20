@@ -1,5 +1,6 @@
 ﻿using Swashbuckle.AspNetCore.Filters;
-namespace ActiveDirectoryBack.SwaggerExamples.ErrorResponse
+
+namespace ProyectoFinal.SwaggerExample.ErrorResponse
 {
     public class Error500ResponseExample : IExamplesProvider<object>
     {
@@ -8,7 +9,7 @@ namespace ActiveDirectoryBack.SwaggerExamples.ErrorResponse
             return new
             {
                 IsSuccess = false,
-                Message = "Error interno del servidor: Ocurrió un error inesperado."
+                Message = "Internal server error: An unexpected error occurred."
             };
         }
     }

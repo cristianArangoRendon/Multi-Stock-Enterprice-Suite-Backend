@@ -4,7 +4,7 @@
         <name>ProyectoFinal</name>
     </assembly>
     <members>
-        <member name="M:ProyectoFinal.Controllers.Auth.generateToken(ProyectoFinal.Core.DTOs.Users.AuthDTO)">
+        <member name="M:ProyectoFinal.Controllers.AuthController.GenerateToken(ProyectoFinal.Core.DTOs.Users.AuthDTO)">
             <summary>
             Generates a token for authentication.
             </summary>
@@ -15,59 +15,108 @@
             </param>
             <remarks>This endpoint generates a token for authentication based on the provided email and password.</remarks>
         </member>
+        <member name="M:ProyectoFinal.Controllers.BillController.CreateBill(ProyectoFinal.Core.DTOs.Bill.CreateBillDTO)">
+            <summary>
+            Creates a new bill.
+            </summary>
+             <param name="bill">
+                 Required:
+            - `idMethodPayment`: Represents the identifier of the payment method used in a transaction. It contains authentication data related to the email, likely indicating the method through which payments are made in a system.
+            - `name`: Represents the name associated with a user account or profile. It contains authentication data related to the password, suggesting it's part of the credentials used for user authentication.
+            - `lastName`: Represents the last name associated with a user account or profile. It contains authentication data related to the password, likely serving as additional information for user identification.
+            - `nit`: Represents the Tax Identification Number (TIN) in some countries. It contains authentication data related to the password, possibly indicating the authentication process for tax-related transactions or user verification.
+            - `date`: Represents a date in the context of a transaction or event. It contains authentication data related to the password, likely indicating the date of a transaction or event associated with user authentication.
+            - `totalPrice`: Represents the total price of a transaction or purchase. It contains authentication data related to the password, possibly indicating that the authentication process involves verifying the total price of a transaction.
+            - `idUser`: Represents the unique identifier of a user in a system or application. It contains authentication data related to the password, likely indicating the authentication process involving user identification through a unique identifier.
+            </param>
+            <remarks>This endpoint creates a new bill with the provided data.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BillController.GetBill">
+            <summary>
+            Retrieves bills.
+            </summary>
+            <remarks>This endpoint retrieves bills for the authenticated user.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BillController.GetBillById(System.Int32)">
+            <summary>
+            Retrieves a bill by its ID.
+            </summary>
+            <param name="idBill">
+                 Required:
+             - `idBill`: Represents the identifier of the bill associated.
+            </param>
+            <remarks>This endpoint retrieves a bill based on the provided ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BillController.DeleteBill(System.Int32)">
+            <summary>
+            Deletes a bill by its ID.
+            </summary>
+             <param name="idbill">
+                 Required:
+            - `idbill`:The ID of the bill to delete.
+            </param>
+            <remarks>This endpoint deletes a bill based on the provided ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.BillController.UpdateBill(ProyectoFinal.Core.DTOs.Bill.UpdateBill)">
+            <summary>
+            Updates a bill.
+            </summary>
+            <param name="update">
+                 Required:
+             - `idBill`: Represents the identifier of the bill associated with the transaction. It has an initial value of 0, indicating that a specific bill has not been assigned yet.
+            - `idMethodPayment`: Represents the identifier of the payment method used in the transaction. It has an initial value of 0, indicating that a specific payment method hasn't been selected yet.
+            - `name`: Represents the first name associated with the user account or profile in the transaction. The value "string" suggests it's a placeholder for actual user data.
+            - `lastName`: Represents the last name associated with the user account or profile in the transaction. The value "string" suggests it's a placeholder for actual user data.
+            - `nit`: Represents the Tax Identification Number (TIN) associated with the transaction, which may be used in certain countries for tax-related purposes. The value "string" suggests it's a placeholder for actual data.
+            - `date`: Represents the date and time of the transaction. The provided value follows the ISO 8601 format ("2024-03-20T13:48:14.386Z"), indicating the precise time the transaction occurred.
+            - `totalPrice`: Represents the total price of the transaction. The initial value is 0, suggesting that the total price hasn't been calculated or specified yet.
+            - `idUser`: Represents the unique identifier of the user associated with the transaction in the system or application. The initial value is 0, suggesting that a specific user hasn't been identified yet.
+            - `idCompany`: Represents the identifier of the company associated with the transaction. The initial value is 0, suggesting that a specific company hasn't been identified yet.
+            </param>
+            <remarks>This endpoint updates a bill with the provided data.</remarks>
+        </member>
         <member name="M:ProyectoFinal.Controllers.BrandController.CreateBrand(System.String)">
             <summary>
             Creates a new brand.
             </summary>
             <param name="Description">
-                Required: 
-            - `Description`: This endpoint creates a new brand with the provided description..
+                 Required:
+             - `Description`: The description of the brand to create.
             </param>
+            <remarks>This endpoint creates a new brand with the provided description.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.BrandController.GetBrand">
             <summary>
             Retrieves all brands.
             </summary>
-            <remarks>
-            This endPoint does not require parameters.
-            </remarks>
+            <remarks>This endpoint retrieves all brands.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.BrandController.GetBrandById(System.Int32)">
             <summary>
             Retrieves a brand by its ID.
             </summary>
-            <remarks>
-            This endpoint retrieves a brand based on the provided brand ID.
-            </remarks>
             <param name="IdBrand">
-                  Required: 
-              - `IdBrand`:   The ID of the brand to retrieve.
+            - `IdBrand`:The ID of the brand to retrieve.
             </param>
+            <remarks>This endpoint retrieves a brand based on the provided ID.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.BrandController.DeleteBrand(System.Int32)">
             <summary>
             Deletes a brand by its ID.
             </summary>
-            <remarks>
-            This endpoint deletes a brand based on the provided brand ID.
-            </remarks>
             <param name="IdBrand">
-                   Required:
-              - `IdBrand`:   The ID of the brand to retrieve.
-            </param>
+            - `IdBrand`:The ID of the brand to delete.</param>
+            <remarks>This endpoint deletes a brand based on the provided ID.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.BrandController.UpdateBrand(ProyectoFinal.Core.DTOs.Brand.BrandDTO)">
             <summary>
             Updates a brand.
             </summary>
-            <remarks>
-            This endpoint updates a brand with the provided brand data.
-            </remarks>
             <param name="brandDTO">
-                    Required: 
-              - `IdBrand`:   The ID of the brand to retrieve.
-              - `Description`:   The description of the brand.
+            - `IdBrand`: Represents the identifier of the brand.
+            - `Description`: Represents the description of the brand.
             </param>
+            <remarks>This endpoint updates a brand with the provided data.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.CategoryController.GetCategory">
             <summary>
@@ -79,99 +128,336 @@
             <summary>
             Creates a new category.
             </summary>
-            <param name="category"> - `category`: The name of the category to create.</param>
+            <param name="category">
+            - `category`:The name of the category to create.</param>
             <remarks>This endpoint creates a new category with the provided name.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.CategoryController.DeleteCategory(System.Int32)">
             <summary>
             Deletes a category by its ID.
             </summary>
-            <param name="idCategory">  - `idCategory`:The ID of the category to delete.</param>
+            <param name="idCategory">
+            - `idCategory`:The ID of the category to delete.</param>
             <remarks>This endpoint deletes a category based on the provided category ID.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.CategoryController.GetCategoryById(System.Int32)">
-            <summary>
-            Retrieves a category by its ID.
-            </summary>
-            <param name="idCategory">- `idCategory`: The ID of the category to retrieve.</param>
-            <remarks>This endpoint retrieves a category based on the provided category ID.</remarks>
+             <summary>
+             Retrieves a category by its ID.
+             </summary>
+             <param name="idCategory">
+             - `idCategory`:The ID of the category to retrieve.
+            </param>
+             <remarks>This endpoint retrieves a category based on the provided category ID.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.CategoryController.UpdateCategory(ProyectoFinal.Core.DTOs.category.categoryDTO)">
             <summary>
             Updates a category.
             </summary>
             <param name="category">
-                 Required:  
-            - `IdCategory`: The data of the category to be updated.
-            - `Description`:  The description of the category.
+            - `idCategory`: Represents the identifier of the category.
+            - `Description`: Represents the description of the category.
             </param>
             <remarks>This endpoint updates a category with the provided category data.</remarks>
         </member>
+        <member name="M:ProyectoFinal.Controllers.CityController.GetCities">
+            <summary>
+            Retrieves a list of cities.
+            </summary>
+            <remarks>This endpoint retrieves a list of cities available in the system.</remarks>
+            <returns>A list of cities.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CityController.GetCityById(System.Int32)">
+            <summary>
+            Retrieves a city by its identifier.
+            </summary>
+            <param name="idCity">
+            - `idCity`: The unique identifier of the city to retrieve.
+            </param>
+            <remarks>This endpoint retrieves a city from the system based on its unique identifier.</remarks>
+            <returns>The city with the specified identifier.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CityController.DeleteCity(System.Int32)">
+            <summary>
+            Deletes a city by its identifier.
+            </summary>
+            <param name="idCity">
+            - `idCity`: The unique identifier of the city to delete.
+            </param>
+            <remarks>This endpoint deletes a city from the system based on its unique identifier.</remarks>
+            <returns>A response indicating the success or failure of the deletion operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CityController.UpdateCity(System.Int32,System.String)">
+            <summary>
+            Updates a city.
+            </summary>
+            <param name="idCity">
+            - `idCity`: The unique identifier of the city to update.
+            </param>
+            <param name="Description">
+            - `Description`: The new description for the city.
+            </param>
+            <remarks>This endpoint updates a city in the system based on its unique identifier and the provided description.</remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.CityController.CreateCity(System.String)">
+            <summary>
+            Creates a new city.
+            </summary>
+            <param name="Description">
+            - `Description`: The description of the new city to create.
+            </param>
+            <remarks>This endpoint creates a new city in the system with the provided description.</remarks>
+            <returns>A response indicating the success or failure of the creation operation.</returns>
+        </member>
         <member name="M:ProyectoFinal.Controllers.CompanyController.GetCompanies">
             <summary>
-            Retrieves all companies.
+            Retrieves a list of companies based on the user's role.
             </summary>
-            <remarks>This endpoint retrieves all companies available in the system.</remarks>
+            <remarks>
+            This endpoint retrieves a list of companies from the system based on the user's role.
+            It requires the user's role identifier to determine the companies accessible to the user.
+            </remarks>
+            <returns>A response containing the list of companies.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.CompanyController.GetCompany(System.String)">
             <summary>
-            Retrieves a company by its ID.
+            Retrieves a company by its unique identifier.
             </summary>
-            <param name="GuidCompany">- `idCompany`: The ID of the GuidCompany to retrieve.</param>
-            <remarks>This endpoint retrieves a company based on the provided GuidCompany ID.</remarks>
+            <param name="guidCompany">
+            - `guidCompany`: The unique identifier (GUID) of the company to retrieve.
+            </param>
+            <remarks>
+            This endpoint retrieves a company from the system based on its unique identifier.
+            It requires the user's role identifier to determine the access rights.
+            </remarks>
+            <returns>A response containing the requested company.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.CompanyController.CreateCompany(System.String)">
             <summary>
             Creates a new company.
             </summary>
-            <param name="Description">- `Description`: The description of the company.</param>
-            <remarks>This endpoint creates a new company with the provided description.</remarks>
+            <param name="description">
+            - `description`: The description of the new company to create.
+            </param>
+            <remarks>
+            This endpoint creates a new company in the system with the provided description.
+            It requires the user's role identifier to determine the access rights.
+            </remarks>
+            <returns>A response indicating the success or failure of the creation operation.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.CompanyController.PutCompany(System.Int32,System.String)">
             <summary>
             Updates a company.
             </summary>
-            <param name="idCompany">- `idCompany`: The ID of the company to update.</param>
-            <param name="description">- `description`: The new description of the company.</param>
-            <remarks>This endpoint updates a company's description based on the provided company ID.</remarks>
+            <param name="idCompany">
+            - `idCompany`: The unique identifier of the company to update.
+            </param>
+            <param name="description">
+            - `description`: The new description for the company.
+            </param>
+            <remarks>
+            This endpoint updates a company in the system based on its unique identifier and the provided description.
+            It requires the user's role identifier to determine the access rights.
+            </remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.CompanyController.DeleteCompany(System.String)">
             <summary>
-            Deletes a company by its ID.
+            Deletes a company by its unique identifier.
             </summary>
-            <param name="IdCompany">- `IdCompany`: The ID of the company to delete.</param>
-            <remarks>This endpoint deletes a company based on the provided company ID.</remarks>
+            <param name="guidCompany">
+            - `guidCompany`: The unique identifier (GUID) of the company to delete.
+            </param>
+            <remarks>
+            This endpoint deletes a company from the system based on its unique identifier.
+            It requires the user's role identifier to determine the access rights.
+            </remarks>
+            <returns>A response indicating the success or failure of the deletion operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.HeadquartersController.GetHeadquarters">
+            <summary>
+            Retrieves headquarters information.
+            </summary>
+            <remarks>
+            This endpoint retrieves headquarters information associated with the current company.
+            It requires authorization to determine the company associated with the retrieval operation.
+            </remarks>
+            <returns>A response containing headquarters information.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.HeadquartersController.CreateHeadquarters(ProyectoFinal.Core.DTOs.Headquarters.CreateHeadquartersDTO)">
+            <summary>
+            Creates a new headquarters.
+            </summary>
+            <param name="create">
+            - `description`: The description of the new headquarters.
+            - `idCompany`: The identifier of the company associated with the headquarters.
+            - `idCity`: The identifier of the city where the headquarters is located.
+            - `idUser`: The identifier of the user creating the headquarters.
+            </param>
+            <remarks>
+            This endpoint creates a new headquarters with the provided data. 
+            It requires authorization to determine the user and company associated with the creation operation.
+            </remarks>
+            <returns>A response indicating the success or failure of the creation operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.HeadquartersController.UpdateHeadquarters(ProyectoFinal.Core.DTOs.Headquarters.UpdateHeadquarters)">
+            <summary>
+            Updates headquarters information.
+            </summary>
+            <param name="update">
+            - `idHeadquarter`: The identifier of the headquarters.
+            - `Description`: The description of the headquarters.
+            - `idCompany`: The identifier of the company associated with the headquarters.
+            - `idCity`: The identifier of the city where the headquarters is located.
+            - `idUser`: The identifier of the user updating the headquarters.
+            </param>
+            <remarks>
+            This endpoint updates headquarters information based on the provided data.
+            It requires authorization to determine the user and company associated with the update operation.
+            </remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.MethodPaymentController.CreateMethodPayment(System.String)">
+            <summary>
+            Creates a new method of payment.
+            </summary>
+            <param name="description">
+            - `description`:The description of the new method of payment.</param>
+            <remarks>
+            This endpoint creates a new method of payment with the provided description.
+            </remarks>
+            <returns>A response indicating the success or failure of the creation operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.MethodPaymentController.GetMethodPayment">
+            <summary>
+            Retrieves method of payment information.
+            </summary>
+            <remarks>
+            This endpoint retrieves information about available methods of payment.
+            </remarks>
+            <returns>A response containing information about available methods of payment.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.MethodPaymentController.DeleteMethodPayment(System.Int32)">
+            <summary>
+            Deletes a method of payment by its identifier.
+            </summary>
+            <param name="idMethodPayment">
+            - `idMethodPayment`:The identifier of the method of payment to delete.</param>
+            <remarks>
+            This endpoint deletes a method of payment from the system based on its unique identifier.
+            </remarks>
+            <returns>A response indicating the success or failure of the deletion operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.MethodPaymentController.UpdateMethodPayment(System.Int32,System.String)">
+            <summary>
+            Updates a method of payment by its identifier.
+            </summary>
+            <param name="idMethodPayment">
+             - `idMethodPayment`:The identifier of the method of payment to update.</param>
+            <param name="description">
+            - `description`:The new description for the method of payment.</param>
+            <remarks>
+            This endpoint updates a method of payment in the system based on its unique identifier.
+            </remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.NeighborhoodController.GetNeighborhood(System.Int32)">
+            <summary>
+            Retrieves neighborhoods based on the identifier of the city.
+            </summary>
+            <param name="idCity">
+            - `idCity`:The identifier of the city for which neighborhoods are to be retrieved.</param>
+            <remarks>
+            This endpoint retrieves neighborhoods associated with the specified city.
+            </remarks>
+            <returns>A response containing the list of neighborhoods.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.NeighborhoodController.CreateNeighborhood(System.String,System.Int32)">
+            <summary>
+            Creates a new neighborhood.
+            </summary>
+            <param name="Description">
+            - `Description`:The description of the new neighborhood to create.</param>
+            <param name="idCity">
+            - `idCity`:The identifier of the city to which the new neighborhood belongs.</param>
+            <remarks>
+            This endpoint creates a new neighborhood in the system with the provided description and associates it with the specified city.
+            </remarks>
+            <returns>A response indicating the success or failure of the creation operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.NeighborhoodController.DeleteNeighborhood(System.Int32)">
+            <summary>
+            Deletes a neighborhood by its identifier.
+            </summary>
+            <param name="idNeighborhood">
+            - `idNeighborhood`:The identifier of the neighborhood to delete.</param>
+            <remarks>
+            This endpoint deletes a neighborhood from the system based on its unique identifier.
+            </remarks>
+            <returns>A response indicating the success or failure of the deletion operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.NeighborhoodController.GetNeighborhoodById(System.Int32,System.Int32)">
+            <summary>
+            Retrieves a neighborhood by its identifier and city.
+            </summary>
+            <param name="IdNeighborhood">
+            - `idNeighborhood`:The identifier of the neighborhood to retrieve.</param>
+            <param name="idCity">
+            - `idCity`:The identifier of the city to which the neighborhood belongs.</param>
+            <remarks>
+            This endpoint retrieves a neighborhood based on its unique identifier and the specified city.
+            </remarks>
+            <returns>A response containing the neighborhood information.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.NeighborhoodController.UpdateNeighborhoodById(System.Int32,System.String,System.Int32)">
+            <summary>
+            Updates a neighborhood by its identifier.
+            </summary>
+            <param name="IdNeighborhood">
+             - `IdNeighborhood`:The identifier of the neighborhood to update.</param>
+            <param name="Description">
+              - `Description`:The new description for the neighborhood.</param>
+            <param name="idCity">
+            - `idCity`:The identifier of the city to which the neighborhood belongs.</param>
+            <remarks>
+            This endpoint updates a neighborhood in the system based on its unique identifier and the provided description.
+            It also associates the neighborhood with the specified city.
+            </remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProductsController.CreateProduct(ProyectoFinal.Core.DTOs.Products.CreateProductDTO)">
             <summary>
             Creates a new product.
             </summary>
             <param name="products">
-            
             - `Description`: The description of the product.
-            - `minimunQuantity`: The minimum quantity of the product.
-            - `stock`:  The current stock quantity of the product.
-            - `idCategory`: The ID of the category to which the product belongs.
-            - `idBrand`: The ID of the brand to which the product belongs.
-            - `idProvider`: The ID of the provider supplying the product.
+            - `stock`: The stock quantity of the product.
+            - `idCategory`: The identifier of the category to which the product belongs.
+            - `idBrand`: The identifier of the brand associated with the product.
+            - `idProvider`: The identifier of the provider associated with the product.
             - `uniqueCode`: The unique code assigned to the product.
-            - `idCompany`: The ID of the company to which the product belongs.
-            - `idWarehouse`: The ID of the warehouse where the product is located.
+            - `idUser`: The identifier of the user creating the product.
             </param>
-            <remarks>This endpoint creates a new product with the provided data.</remarks>
+            <remarks>
+            This endpoint creates a new product with the provided data. 
+            It requires authorization to determine the user associated with the creation operation.
+            </remarks>
+            <returns>A response indicating the success or failure of the creation operation.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProductsController.DeleteProducts(System.Int32)">
             <summary>
             Deletes a product by its ID.
             </summary>
-            <param name="idProducts">- `idProducts`: The ID of the product to delete.</param>
+            <param name="idProducts">
+             - `idProducts`:The ID of the product to delete.</param>
             <remarks>This endpoint deletes a product based on the provided product ID.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProductsController.GetProductsById(System.Int32)">
             <summary>
             Retrieves a product by its ID.
             </summary>
-            <param name="idProducts">- `idProducts`: The ID of the product to retrieve.</param>
+            <param name="idProduct">
+             - `idProducts`:The ID of the product to retrieve.</param>
             <remarks>This endpoint retrieves a product based on the provided product ID.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProductsController.GetProducts">
@@ -182,109 +468,222 @@
         </member>
         <member name="M:ProyectoFinal.Controllers.ProductsController.UpdateProducts(ProyectoFinal.Core.DTOs.Products.ProductsDTO)">
             <summary>
-            Updates a product.
+            Updates product information.
             </summary>
-            <param name="product">- `product`: The data of the product to be updated.</param>
-            <remarks>This endpoint updates a product with the provided product data.</remarks>
+            <param name="product">
+            - `idProduct`: The identifier of the product.
+            - `description`: The description of the product.
+            - `minimunQuantity`: The minimum quantity of the product.
+            - `stock`: The stock quantity of the product.
+            - `idCategory`: The identifier of the category to which the product belongs.
+            - `idBrand`: The identifier of the brand associated with the product.
+            - `idProvider`: The identifier of the provider associated with the product.
+            - `uniqueCode`: The unique code assigned to the product.
+            - `idUser`: The identifier of the user updating the product.
+            </param>
+            <remarks>
+            This endpoint updates product information based on the provided data.
+            </remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProviderController.GetProvider">
             <summary>
-            Retrieves all providers.
+            Retrieves provider information.
             </summary>
-            <remarks>This endpoint retrieves all providers available in the system.</remarks>
+            <remarks>
+            This endpoint retrieves information about providers associated with the current company.
+            </remarks>
+            <returns>A response containing information about providers associated with the current company.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProviderController.GetProviderById(System.Int32)">
             <summary>
-            Retrieves a provider by its ID.
+            Retrieves provider information by its identifier.
             </summary>
-            <param name="IdProvider">- `IdProvider`: The ID of the provider to retrieve.</param>
-            <remarks>This endpoint retrieves a provider based on the provided provider ID.</remarks>
+            <param name="IdProvider">
+            - `idProvider`:The identifier of the provider to retrieve.</param>
+            <remarks>
+            This endpoint retrieves information about a specific provider associated with the current company.
+            </remarks>
+            <returns>A response containing information about the specified provider.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProviderController.DeleteProvider(System.Int32)">
             <summary>
-            Deletes a provider by its ID.
+            Deletes a provider by its identifier.
             </summary>
-            <param name="idProvider">- `idProvider`: The ID of the provider to delete.</param>
-            <remarks>This endpoint deletes a provider based on the provided provider ID.</remarks>
+            <param name="idProvider">
+            - `idProvider`:The identifier of the provider to delete.</param>
+            <remarks>
+            This endpoint deletes a provider associated with the current company based on its unique identifier.
+            </remarks>
+            <returns>A response indicating the success or failure of the deletion operation.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProviderController.UpdateProvider(ProyectoFinal.Core.DTOs.Provider.ProviderUpdateDTO)">
             <summary>
-            Updates a provider.
+            Updates provider information.
             </summary>
-            <param name="provider">- `provider`: The data of the provider to be updated.</param>
-            <remarks>This endpoint updates a provider with the provided provider data.</remarks>
+            <param name="provider">
+            - `idProvider`: The identifier of the provider to update.
+            - `Description`: The updated description of the provider.
+            - `idCompany`: The identifier of the company associated with the provider.
+            </param>
+            <remarks>
+            This endpoint updates provider information based on the provided data.
+            It requires authorization to determine the company associated with the update operation.
+            </remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.ProviderController.CreateProvider(System.String)">
             <summary>
             Creates a new provider.
             </summary>
-             /// <param name="Description">
-            - `Description`: The description of the Provider.
-            </param>
-            <remarks>This endpoint creates a new provider with the provided name.</remarks>
+            <param name="Description">
+            - `Description`:The description of the Provider.</param>
+            <remarks>
+            This endpoint creates a new provider with the provided description.
+            It requires authorization to determine the company associated with the creation operation.
+            </remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.RolController.GetRoles">
             <summary>
-            Retrieves all roles.
+            Retrieves roles.
             </summary>
-            <remarks>This endpoint retrieves all roles available in the system.</remarks>
+            <remarks>
+            This endpoint retrieves information about roles.
+            </remarks>
+            <returns>A response containing information about roles.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.RolController.GetRoles(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.RolController.GetRoleById(System.Int32)">
             <summary>
-            Retrieves a role by its ID.
+            Retrieves role by its identifier.
             </summary>
-            <param name="idRol">- `idRol`: The ID of the role to retrieve.</param>
-            <remarks>This endpoint retrieves a role based on the provided role ID.</remarks>
+            <param name="idRol">
+            - `idRol`:The identifier of the role to retrieve.</param>
+            <remarks>
+            This endpoint retrieves information about a specific role based on its unique identifier.
+            </remarks>
+            <returns>A response containing information about the specified role.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.RolController.UpdateRol(ProyectoFinal.Core.DTOs.Rol.RolDTO)">
             <summary>
-            Updates a role.
+            Updates role information.
             </summary>
             <param name="rol">
-            - `rol`: The data of the role to be updated.
-            - `Description`: The description of the Description.
+            - `rol`: The data required to update the role.
+            - `Description`: The updated description of the role.
             </param>
-            <remarks>This endpoint updates a role with the provided role data.</remarks>
+            <remarks>
+            This endpoint updates role information based on the provided data, including the updated role description.
+            </remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
         </member>
         <member name="M:ProyectoFinal.Controllers.RolController.CreateRol(System.String)">
             <summary>
             Creates a new role.
             </summary>
-            <param name="Description">- `Description`: The description of the role.</param>
+            <param name="Description">
+            - `Description`:The description of the role.</param>
             <remarks>This endpoint creates a new role with the provided description.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.UsersController.CreateUser(ProyectoFinal.Core.DTOs.Users.CreateUserDTO)">
             <summary>
             Creates a new user.
             </summary>
-            <param name="UserDTO">- `User`: The data of the user to create.</param>
-            <remarks>This endpoint creates a new user with the provided data.</remarks>
+            <param name="userDTO">
+            - `Names`: The first names of the user.
+            - `lastNames`: The last names of the user.
+            - `Email`: The email address of the user.
+            - `password`: The password for the user account.
+            - `IdCompany`: The identifier of the company associated with the user.
+            - `IdRol`: The identifier of the role assigned to the user.
+            - `Gender`: The gender of the user (e.g., 'M' for male, 'F' for female).
+            - `Image`: The image URL or path associated with the user (optional).
+            </param>
+            <remarks>
+            This endpoint creates a new user with the provided information, including the user's names, email, password, company affiliation, role assignment, gender, and optionally an image.
+            </remarks>
+            <returns>A response indicating the success or failure of the user creation operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.UsersController.DeleteUsuario(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.UsersController.DeleteUser(System.Int32)">
             <summary>
             Deletes a user by its ID.
             </summary>
-            <param name="id">- `id`: The ID of the user to delete.</param>
+            <param name="idUser">
+            - `idUser`:The ID of the user to delete.</param>
             <remarks>This endpoint deletes a user based on the provided user ID.</remarks>
         </member>
         <member name="M:ProyectoFinal.Controllers.UsersController.GetUsers">
             <summary>
-            Retrieves users.
+            Retrieves a list of users belonging to the current company.
             </summary>
+            <remarks>
+            This endpoint retrieves a list of users associated with the current company based on the company identifier extracted from the user's claims.
+            </remarks>
+            <returns>A response containing the list of users belonging to the current company, or an error response if the operation fails.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.UsersController.UpdateUsersById(ProyectoFinal.Core.DTOs.Users.UpdateUserDTO)">
+        <member name="M:ProyectoFinal.Controllers.UsersController.UpdateUserById(ProyectoFinal.Core.DTOs.Users.UpdateUserDTO)">
             <summary>
-            Updates a user by its ID.
+            Updates user information by their ID.
             </summary>
-            <param name="userDTO">- `userDTO`: The data of the user to be updated.</param>
-            <remarks>This endpoint updates a user with the provided user data.</remarks>
+            <param name="userDTO">
+            - `idUser`: The identifier of the user to update.
+            - `Names`: The updated names of the user.
+            - `lastNames`: The updated last names of the user.
+            - `Email`: The updated email address of the user.
+            - `password`: The updated password of the user.
+            - `idRol`: The updated role identifier of the user.
+            - `IdCompany`: The identifier of the company to which the user belongs.
+            </param>
+            <remarks>
+            This endpoint updates user information based on the provided data, including the user's names, last names, email, password, role, and associated company.
+            It requires authorization to ensure that only authorized users can update user information.
+            </remarks>
+            <returns>A response indicating the success or failure of the update operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.UsersController.GetUsersById(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.UsersController.GetUserById(System.Int32)">
             <summary>
             Retrieves a user by its ID.
             </summary>
-            <param name="idUser">- `idUser`: The ID of the user to retrieve.</param>
+            <param name="idUser">
+            - `idUser`:The ID of the user to retrieve.</param>
             <remarks>This endpoint retrieves a user based on the provided user ID.</remarks>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.WarehouseController.GetWarehouse(System.Int32)">
+            <summary>
+            Retrieves warehouse information by headquarters ID.
+            </summary>
+            <param name="idHeadquarter">
+            - `idHeadquarter`:The identifier of the headquarters to retrieve warehouse information for.</param>
+            <remarks>
+            This endpoint retrieves warehouse information based on the provided headquarters ID and company ID.
+            It requires authorization to ensure that only authorized users can access warehouse information.
+            </remarks>
+            <returns>A response containing warehouse information for the specified headquarters.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.WarehouseController.PostWarehouse(System.Int32,System.String)">
+            <summary>
+            Creates a new warehouse.
+            </summary>
+            <param name="idHeadquarter">
+            - `idHeadquarter`:The identifier of the headquarters where the warehouse will be created.</param>
+            <param name="description">
+            - `description`:The description of the new warehouse.</param>
+            <remarks>
+            This endpoint creates a new warehouse at the specified headquarters with the provided description.
+            It requires authorization to ensure that only authorized users can create warehouses.
+            </remarks>
+            <returns>A response indicating the success or failure of the creation operation.</returns>
+        </member>
+        <member name="M:ProyectoFinal.Controllers.WarehouseController.DeleteWarehouse(System.Int32)">
+            <summary>
+            Deletes a warehouse.
+            </summary>
+            <param name="idWarehouse">
+            - `idWarehouse`:The identifier of the warehouse to delete.</param>
+            <remarks>
+            This endpoint deletes the warehouse with the specified identifier. 
+            It requires authorization to ensure that only authorized users can delete warehouses.
+            </remarks>
+            <returns>A response indicating the success or failure of the deletion operation.</returns>
         </member>
     </members>
 </doc>

@@ -1,17 +1,19 @@
 ﻿using ProyectoFinal.Core.DTOs.Response;
 using Swashbuckle.AspNetCore.Filters;
-namespace ActiveDirectoryBack.SwaggerExamples.ErrorResponse
+
+namespace ProyectoFinal.ErrorResponse.Doc.Bill
 {
-    public class Response200Example : IExamplesProvider<ResponseDTO>
+    public class UpdateBillDoc : IExamplesProvider<ResponseDTO>
     {
         public ResponseDTO GetExamples()
         {
             return new ResponseDTO
             {
                 IsSuccess = true,
-                Message = "Estado de operacion",
-                Data = "ModelDTO"
+                Message = "Bill Update successfully",
+                Data = null
             };
         }
+
     }
 }

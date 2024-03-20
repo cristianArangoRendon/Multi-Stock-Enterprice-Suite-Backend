@@ -68,7 +68,6 @@ C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Proye
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\ProyectoFinal.xml
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
-C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
@@ -77,9 +76,6 @@ C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Micro
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.OpenApi.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Scrutor.dll
-C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
-C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -117,3 +113,15 @@ C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\obj\Debug\net7.0\Proye
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\obj\Debug\net7.0\ProyectoFinal.pdb
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\obj\Debug\net7.0\ProyectoFinal.genruntimeconfig.cache
 C:\Users\EQUIPO\Source\Repos\Proyecto_final\ProyectoFinal\obj\Debug\net7.0\ref\ProyectoFinal.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\System.Net.Http.Formatting.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\System.Web.Http.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.Core.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.Examples.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Scrutor.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll

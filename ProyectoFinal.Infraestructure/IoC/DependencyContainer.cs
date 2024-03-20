@@ -10,7 +10,7 @@ namespace ProyectoFinal.Infraestructure.IoC
     {
         public static IServiceCollection
 
-           AddProyectoFinal(this IServiceCollection services, IConfiguration configuration)
+        AddProyectoFinal(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddBll();
             

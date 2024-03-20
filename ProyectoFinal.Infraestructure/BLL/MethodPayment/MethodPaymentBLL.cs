@@ -19,7 +19,7 @@ namespace ProyectoFinal.Infraestructure.BLL.MethodPayment
         public async Task<ResponseDTO> CreateMethodPayment(string Description)
         {
             ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = true;
+            response.IsSuccess = false;
             try
             {
                 return await _methodPaymentRepository.CreateMethodPayment(Description);
@@ -33,7 +33,7 @@ namespace ProyectoFinal.Infraestructure.BLL.MethodPayment
         public async Task<ResponseDTO> DeleteMethodPayment(int idMethodPayment)
         {
             ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = true;
+            response.IsSuccess = false;
             try
             {
                 return await _methodPaymentRepository.DeleteMethodPayment(idMethodPayment);
@@ -47,7 +47,7 @@ namespace ProyectoFinal.Infraestructure.BLL.MethodPayment
         public async Task<ResponseDTO> GetMethodPayment()
         {
             ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = true;
+            response.IsSuccess = false;
             try
             {
                 return await _methodPaymentRepository.GetMethodPayment();
@@ -61,7 +61,7 @@ namespace ProyectoFinal.Infraestructure.BLL.MethodPayment
         public async Task<ResponseDTO> UpdateMethodPayment(int idMethodPayment, string Description)
         {
             ResponseDTO response = new ResponseDTO();
-            response.IsSuccess = true;
+            response.IsSuccess = false;
             try
             {
                 return await _methodPaymentRepository.UpdateMethodPayment(idMethodPayment, Description);

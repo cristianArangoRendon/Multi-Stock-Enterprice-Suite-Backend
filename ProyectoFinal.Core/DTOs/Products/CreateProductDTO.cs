@@ -3,7 +3,6 @@
     public class CreateProductDTO
     {
         public string Description { get; set; }
-        public int minimunQuantity { get; set; }
         public int stock { get; set; }
         public int idCategory { get; set; }
         public int idBrand { get; set; }

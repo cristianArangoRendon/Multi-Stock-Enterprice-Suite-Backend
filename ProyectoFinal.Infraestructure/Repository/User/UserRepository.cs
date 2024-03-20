@@ -78,11 +78,12 @@ namespace ProyectoFinal.Infraestructure.Repository.Users
         }
 
 
-        public async Task<ResponseDTO> GetUserByIdRepository(int idUser)
+        public async Task<ResponseDTO> GetUserByIdRepository(int idUser, int idCompany)
         {
             var parameters = new
             {
-                IdUser = idUser,
+                idUser = idUser,
+                idCompany = idCompany
             };
 
             return await _ExecuteStoredProcedureServiceService.ExecuteSingleObjectStoredProcedure("dbo.GetUserById", parameters, MapToObjHelper.MapToObj<UsersDTO>);
@@ -98,9 +99,9 @@ namespace ProyectoFinal.Infraestructure.Repository.Users
             return await _ExecuteStoredProcedureServiceService.ExecuteDataStoredProcedure("dbo.GetUsers", parameters, MapToListHelper.MapToList<UsersDTO>);
         }
 
-        public async Task<ResponseDTO> UpdateUserRepository(UsersDTO userDTO)
+        public async Task<ResponseDTO> UpdateUserRepository(UpdateUserDTO update)
         {
-            object obj = userDTO.ToObject<UsersDTO>();
+            object obj = update.ToObject<UpdateUserDTO>();
             return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("dbo.UpdateUsers", obj);
         }
     }
