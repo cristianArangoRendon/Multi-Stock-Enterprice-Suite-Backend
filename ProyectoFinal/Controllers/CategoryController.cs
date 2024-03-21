@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.category;
 using ProyectoFinal.Core.Interfaces.IBLL.Category;
-using ProyectoFinal.ErrorResponse.Doc.Brand;
 using ProyectoFinal.ErrorResponse.Doc.Category;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;

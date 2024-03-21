@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.Products;
-using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Products;
+using ProyectoFinal.ErrorResponse.Doc.ProductsDoc;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -45,6 +45,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response indicating the success or failure of the creation operation.</returns>
 
         [HttpPost("/Product")]
+        [SwaggerResponseExample(200, (typeof(GetProductsDoc)))]
         public async Task<IActionResult> CreateProduct(CreateProductDTO products)
         {
             var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");
@@ -66,6 +67,7 @@ namespace ProyectoFinal.Controllers
         ///  - `idProducts`:The ID of the product to delete.</param>
         /// <remarks>This endpoint deletes a product based on the provided product ID.</remarks>
         [HttpDelete("/Product")]
+        [SwaggerResponseExample(200, (typeof(DeleteProductDoc)))]
         public async Task<IActionResult> DeleteProducts(int idProducts)
         {
             var response = await _productsBLL.DeleteProductBLL(idProducts);
@@ -83,6 +85,7 @@ namespace ProyectoFinal.Controllers
         ///  - `idProducts`:The ID of the product to retrieve.</param>
         /// <remarks>This endpoint retrieves a product based on the provided product ID.</remarks>
         [HttpGet("/Product/By/Id")]
+        [SwaggerResponseExample(200, (typeof(GetProductByIdDoc)))]
         public async Task<IActionResult> GetProductsById(int idProduct)
         {
             var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");
@@ -101,6 +104,7 @@ namespace ProyectoFinal.Controllers
         /// </summary>
         /// <remarks>This endpoint retrieves all products available in the system.</remarks>
         [HttpGet("/Products")]
+        [SwaggerResponseExample(200, (typeof(GetProductsDoc)))]
         public async Task<IActionResult> GetProducts()
         {
             var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");
@@ -134,7 +138,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response indicating the success or failure of the update operation.</returns>
 
         [HttpPut("/Products")]
-
+        [SwaggerResponseExample(200, (typeof(UpdateProducDoc)))]
         public async Task<IActionResult> UpdateProducts(ProductsDTO product)
         {
             var user = User.Claims.FirstOrDefault(x => x.Type == "UserId");

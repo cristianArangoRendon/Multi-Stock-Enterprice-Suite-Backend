@@ -14,14 +14,14 @@ namespace ProyectoFinal.ErrorResponse.Doc.Bill
                 Message = "Successfull Operation.",
                 Data = new BillDTO
                 {
-                       idBill = 1,
-                       idMethodPayment = 1,
-                       Name = "John",
-                       LastName = "Doe",
-                       Nit = "123456789",
-                       Date = DateTime.Now,
-                       totalPrice = 100.00m,
-                       idUser = 123
+                    idBill = 1,
+                    idMethodPayment = 1,
+                    Name = "Elena",
+                    LastName = "Garcia",
+                    Nit = "789456123",
+                    Date = DateTime.Now,
+                    totalPrice = 120.50m,
+                    idUser = 111
                 }
             };
         }

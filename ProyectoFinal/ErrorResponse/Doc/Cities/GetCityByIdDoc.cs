@@ -13,7 +13,7 @@ namespace ProyectoFinal.ErrorResponse.Doc.Cities
                 IsSuccess = true,
                 Message = "Successfull Operation.",
                 Data = new CitiesDTO
-                {             
+                {
                     idCity = 1,
                     Description = "Medellín"
                 }

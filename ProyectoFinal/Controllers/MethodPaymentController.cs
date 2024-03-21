@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.Interfaces.IBLL.MethodPayment;
+using ProyectoFinal.ErrorResponse.Doc.MethodPayment;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -34,6 +35,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the creation operation.</returns>
         [HttpPost("/MethodPayment")]
+        [SwaggerResponseExample(200, (typeof(CreateMethodPaymentDoc)))]
         public async Task<IActionResult> CreateMethodPayment(string description)
         {
             var response = await _methodPayment.CreateMethodPayment(description);
@@ -53,6 +55,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response containing information about available methods of payment.</returns>
         [HttpGet("/MethodPayment")]
+        [SwaggerResponseExample(200, (typeof(GetMethodPaymentDoc)))]
         public async Task<IActionResult> GetMethodPayment()
         {
             var response = await _methodPayment.GetMethodPayment();
@@ -74,6 +77,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the deletion operation.</returns>
         [HttpDelete("/MethodPayment")]
+        [SwaggerResponseExample(200, (typeof(DeleteMethodPaymentDoc)))]
         public async Task<IActionResult> DeleteMethodPayment(int idMethodPayment)
         {
             var response = await _methodPayment.DeleteMethodPayment(idMethodPayment);
@@ -98,6 +102,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the update operation.</returns>
         [HttpPut("/MethodPayment")]
+        [SwaggerResponseExample(200, (typeof(UpdateMethodPaymentDoc)))]
         public async Task<IActionResult> UpdateMethodPayment(int idMethodPayment, string description)
         {
             var response = await _methodPayment.UpdateMethodPayment(idMethodPayment, description);

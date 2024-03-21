@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.Brand;
-using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Brand;
-using ProyectoFinal.ErrorResponse.Doc.Bill;
 using ProyectoFinal.ErrorResponse.Doc.Brand;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
@@ -12,7 +9,7 @@ namespace ProyectoFinal.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+
     [SwaggerResponseExample(401, typeof(Error401ResponseExample))]
     [ProducesResponseType(typeof(Response200Example), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(Error500ResponseExample), StatusCodes.Status500InternalServerError)]

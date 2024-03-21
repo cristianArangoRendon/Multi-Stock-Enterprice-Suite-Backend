@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.Provider;
-using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Provider;
+using ProyectoFinal.ErrorResponse.Doc.Provider;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -34,6 +34,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response containing information about providers associated with the current company.</returns>
 
         [HttpGet("/Provider")]
+        [SwaggerResponseExample(200, (typeof(GetProviderDoc)))]
         public async Task<IActionResult> GetProvider()
         {
             var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -58,6 +59,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response containing information about the specified provider.</returns>
 
         [HttpGet("/Provider/By/Id")]
+        [SwaggerResponseExample(200, (typeof(GetProviderByIdDoc)))]
         public async Task<IActionResult> GetProviderById(int IdProvider)
         {
             var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -82,6 +84,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response indicating the success or failure of the deletion operation.</returns>
 
         [HttpDelete("/Provider")]
+        [SwaggerResponseExample(200, (typeof(DeleteProviderDoc)))]
         public async Task<IActionResult> DeleteProvider(int idProvider)
         {
             var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -108,6 +111,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the update operation.</returns>
         [HttpPut("/Provider")]
+        [SwaggerResponseExample(200, (typeof(UpdateProviderDoc)))]
         public async Task<IActionResult> UpdateProvider(ProviderUpdateDTO provider)
         {
             var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -132,6 +136,7 @@ namespace ProyectoFinal.Controllers
         /// It requires authorization to determine the company associated with the creation operation.
         /// </remarks>
         [HttpPost("/Provider")]
+        [SwaggerResponseExample(200, (typeof(CreateProviderDoc)))]
         public async Task<IActionResult> CreateProvider(string Description)
         {
             var company = User.Claims.FirstOrDefault(x => x.Type == "idCompany");

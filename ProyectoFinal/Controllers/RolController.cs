@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.Rol;
 using ProyectoFinal.Core.Interfaces.IBLL.Rol;
+using ProyectoFinal.ErrorResponse.Doc.Rol;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -34,6 +35,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response containing information about roles.</returns>
 
         [HttpGet("/Rol")]
+        [SwaggerResponseExample(200, (typeof(GetRolesDoc)))]
         public async Task<IActionResult> GetRoles()
         {
             var response = await _rolBll.GetRolesBLL();
@@ -55,6 +57,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response containing information about the specified role.</returns>
 
         [HttpGet("/Rol/By/Id")]
+        [SwaggerResponseExample(200, (typeof(GetRolByIdDoc)))]
         public async Task<IActionResult> GetRoleById(int idRol)
         {
             var response = await _rolBll.GetRolByIdBLL(idRol);
@@ -77,6 +80,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the update operation.</returns>
         [HttpPut("/Rol")]
+        [SwaggerResponseExample(200, (typeof(UpdateRolDoc)))]
         public async Task<IActionResult> UpdateRol(RolDTO rol)
         {
             var response = await _rolBll.UpdateRolBLL(rol);
@@ -94,6 +98,7 @@ namespace ProyectoFinal.Controllers
         /// - `Description`:The description of the role.</param>
         /// <remarks>This endpoint creates a new role with the provided description.</remarks>
         [HttpPost("/Rol")]
+        [SwaggerResponseExample(200, (typeof(CreateRolDoc)))]
         public async Task<IActionResult> CreateRol(string Description)
         {
             var response = await _rolBll.CreateRolBLL(Description);

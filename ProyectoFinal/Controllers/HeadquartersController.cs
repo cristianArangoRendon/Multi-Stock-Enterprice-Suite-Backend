@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.DTOs.Headquarters;
 using ProyectoFinal.Core.Interfaces.IBLL.Headquarter;
+using ProyectoFinal.ErrorResponse.Doc.Headquarters;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -33,6 +34,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response containing headquarters information.</returns>
         [HttpGet("/Headquarters")]
+        [SwaggerResponseExample(200, (typeof(GetHeadquartersDoc)))]
         public async Task<IActionResult> GetHeadquarters()
         {
             var companyIdClaim = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -62,6 +64,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response indicating the success or failure of the creation operation.</returns>
 
         [HttpPost("/Headquarters")]
+        [SwaggerResponseExample(200, (typeof(CreateHeadquartersDoc)))]
         public async Task<IActionResult> CreateHeadquarters(CreateHeadquartersDTO create)
         {
             var userIdClaim = User.Claims.FirstOrDefault(x => x.Type == "UserId");
@@ -99,6 +102,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the update operation.</returns>
         [HttpPut("/Headquarters")]
+        [SwaggerResponseExample(200, (typeof(UpdateHeadquartersDoc)))]
         public async Task<IActionResult> UpdateHeadquarters(UpdateHeadquarters update)
         {
             var userIdClaim = User.Claims.FirstOrDefault(x => x.Type == "UserId");

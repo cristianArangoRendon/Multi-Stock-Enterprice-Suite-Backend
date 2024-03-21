@@ -14,8 +14,8 @@ namespace ProyectoFinal.ErrorResponse.Doc.Category
                 Message = "Successfull Operation.",
                 Data = new categoryDTO
                 {
-                      IdCategory = 1,
-                      Description = "Accesorios"
+                    IdCategory = 1,
+                    Description = "Neumáticos y Ruedas"
                 }
             };
         }

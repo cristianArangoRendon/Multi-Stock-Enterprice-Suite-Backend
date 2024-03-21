@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Neighborhood;
+using ProyectoFinal.ErrorResponse.Doc.Neighborhood;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -35,6 +35,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response containing the list of neighborhoods.</returns>
         [HttpGet("/Neighborhood")]
+        [SwaggerResponseExample(200, (typeof(GetNeighborhoodDoc)))]
         public async Task<IActionResult> GetNeighborhood(int idCity)
         {
             var response = await _neighborhood.GetNeighborhood(idCity);
@@ -58,6 +59,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the creation operation.</returns>
         [HttpPost("/Neighborhood")]
+        [SwaggerResponseExample(200, (typeof(CreateNeighborhoodDoc)))]
         public async Task<IActionResult> CreateNeighborhood(string Description, int idCity)
         {
             var response = await _neighborhood.CreateNeighborhood(Description, idCity);
@@ -80,6 +82,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response indicating the success or failure of the deletion operation.</returns>
 
         [HttpDelete("/Neighborhood")]
+        [SwaggerResponseExample(200, (typeof(DeleteNeighborhoodDoc)))]
         public async Task<IActionResult> DeleteNeighborhood(int idNeighborhood)
         {
             var response = await _neighborhood.DeleteNeighborhood(idNeighborhood);
@@ -103,6 +106,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response containing the neighborhood information.</returns>
         [HttpGet("/Neighborhood/ById")]
+        [SwaggerResponseExample(200, (typeof(GetNeighborhoodByIdDoc)))]
         public async Task<IActionResult> GetNeighborhoodById(int IdNeighborhood, int idCity)
         {
             var response = await _neighborhood.GetNeighborhoodById(IdNeighborhood, idCity);
@@ -129,6 +133,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the update operation.</returns>
         [HttpPut("/Neighborhood")]
+        [SwaggerResponseExample(200, (typeof(UpdateNeighborhoodDoc)))]
         public async Task<IActionResult> UpdateNeighborhoodById(int IdNeighborhood, string Description, int idCity)
         {
             var response = await _neighborhood.UpdateNeighborhoodById(IdNeighborhood, Description, idCity);

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Company;
+using ProyectoFinal.ErrorResponse.Doc.Company;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -31,6 +31,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response containing the list of companies.</returns>
         [HttpGet("/Companies")]
+        [SwaggerResponseExample(200, (typeof(GetCompaniesDoc)))]
         public async Task<IActionResult> GetCompanies()
         {
             var roleId = User.Claims.FirstOrDefault(x => x.Type == "idRol");
@@ -55,6 +56,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response containing the requested company.</returns>
         [HttpGet("/Company/ById")]
+        [SwaggerResponseExample(200, (typeof(GetCompanyByIdDoc)))]
         public async Task<IActionResult> GetCompany(string guidCompany)
         {
             var roleId = User.Claims.FirstOrDefault(x => x.Type == "idRol");
@@ -78,6 +80,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the creation operation.</returns>
         [HttpPost("/company")]
+        [SwaggerResponseExample(200, (typeof(CreateCompanyDoc)))]
         public async Task<IActionResult> CreateCompany(string description)
         {
             var roleId = User.Claims.FirstOrDefault(x => x.Type == "idRol");
@@ -105,6 +108,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the update operation.</returns>
         [HttpPut("/Company")]
+        [SwaggerResponseExample(200, (typeof(UpdateCompanyDoc)))]
         public async Task<IActionResult> PutCompany(int idCompany, string description)
         {
             var roleId = User.Claims.FirstOrDefault(x => x.Type == "idRol");
@@ -129,6 +133,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the deletion operation.</returns>
         [HttpDelete("/Company")]
+        [SwaggerResponseExample(200, (typeof(DeleteCompanyDoc)))]
         public async Task<IActionResult> DeleteCompany(string guidCompany)
         {
             var roleId = User.Claims.FirstOrDefault(x => x.Type == "idRol");

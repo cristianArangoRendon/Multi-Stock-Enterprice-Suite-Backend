@@ -95,7 +95,7 @@ namespace ProyectoFinal.Controllers
         /// </summary>
         ///  <param name="idbill">
         ///      Required:
-        /// - `idbill`:The ID of the bill to delete.
+        /// - `idBill`:The ID of the bill to delete.
         /// </param>
         /// <remarks>This endpoint deletes a bill based on the provided ID.</remarks>
         [HttpDelete("/Bill")]

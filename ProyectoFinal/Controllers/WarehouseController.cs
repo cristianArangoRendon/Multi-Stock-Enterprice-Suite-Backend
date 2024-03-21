@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Core.Interfaces.IBLL.Warehouse;
+using ProyectoFinal.ErrorResponse.Doc.Warehouse;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -36,6 +37,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response containing warehouse information for the specified headquarters.</returns>
 
         [HttpGet("/Warehouse")]
+        [SwaggerResponseExample(200, (typeof(GetWarehouseDoc)))]
         public async Task<IActionResult> GetWarehouse(int idHeadquarter)
         {
             var companyIdClaim = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -65,6 +67,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response indicating the success or failure of the creation operation.</returns>
 
         [HttpPost("/Warehouse")]
+        [SwaggerResponseExample(200, (typeof(CreateWarehouseDoc)))]
         public async Task<IActionResult> PostWarehouse(int idHeadquarter, string description)
         {
             var userIdClaim = User.Claims.FirstOrDefault(x => x.Type == "UserId");
@@ -93,6 +96,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response indicating the success or failure of the deletion operation.</returns>
 
         [HttpDelete("/Warehouse")]
+        [SwaggerResponseExample(200, (typeof(DeleteWarehouseDoc)))]
         public async Task<IActionResult> DeleteWarehouse(int idWarehouse)
         {
             var userIdClaim = User.Claims.FirstOrDefault(x => x.Type == "UserId");

@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.DTOs.Users;
 using ProyectoFinal.Core.Interfaces.IBLL.Users;
+using ProyectoFinal.ErrorResponse.Doc.Rol;
+using ProyectoFinal.ErrorResponse.Doc.Users;
 using ProyectoFinal.SwaggerExample.ErrorResponse;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -45,6 +46,7 @@ namespace ProyectoFinal.Controllers
         /// </remarks>
         /// <returns>A response indicating the success or failure of the user creation operation.</returns>
         [HttpPost("/User")]
+        [SwaggerResponseExample(200, (typeof(CreateUserDoc)))]
         public async Task<IActionResult> CreateUser(CreateUserDTO userDTO)
         {
             var companyIdClaim = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -65,6 +67,7 @@ namespace ProyectoFinal.Controllers
         /// - `idUser`:The ID of the user to delete.</param>
         /// <remarks>This endpoint deletes a user based on the provided user ID.</remarks>
         [HttpDelete("/User")]
+        [SwaggerResponseExample(200, (typeof(DeleteUserDoc)))]
         public async Task<IActionResult> DeleteUser(int idUser)
         {
             var response = await _userBLL.DeleteUser(idUser);
@@ -83,6 +86,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response containing the list of users belonging to the current company, or an error response if the operation fails.</returns>
 
         [HttpGet("/Users")]
+        [SwaggerResponseExample(200, (typeof(GetUsersDoc)))]
         public async Task<IActionResult> GetUsers()
         {
             var companyIdClaim = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -114,6 +118,7 @@ namespace ProyectoFinal.Controllers
         /// <returns>A response indicating the success or failure of the update operation.</returns>
 
         [HttpPut("/User")]
+        [SwaggerResponseExample(200, (typeof(UpdateUserDoc)))]
         public async Task<IActionResult> UpdateUserById(UpdateUserDTO userDTO)
         {
             var companyIdClaim = User.Claims.FirstOrDefault(x => x.Type == "idCompany");
@@ -134,6 +139,7 @@ namespace ProyectoFinal.Controllers
         /// - `idUser`:The ID of the user to retrieve.</param>
         /// <remarks>This endpoint retrieves a user based on the provided user ID.</remarks>
         [HttpGet("/User/By/Id")]
+        [SwaggerResponseExample(200, (typeof(GetRolByIdDoc)))]
         public async Task<IActionResult> GetUserById(int idUser)
         {
             var companyIdClaim = User.Claims.FirstOrDefault(x => x.Type == "idCompany");

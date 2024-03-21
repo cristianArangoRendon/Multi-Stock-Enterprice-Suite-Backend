@@ -90,7 +90,7 @@ builder.Services.AddSwaggerGen(c =>
 
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "FINAL PROJECT",
+        Title = "MultiStock Enterprise Suite",
         Version = "v1",
         Description = ""
     });
@@ -132,7 +132,7 @@ var app = builder.Build();
     app.UseSwaggerUI(
         c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "FINAL PROJECT, SENA");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "MultiStock Enterprise Suite, SENA");
             c.DefaultModelsExpandDepth(-1);
         }); app.UseSwagger();
 }

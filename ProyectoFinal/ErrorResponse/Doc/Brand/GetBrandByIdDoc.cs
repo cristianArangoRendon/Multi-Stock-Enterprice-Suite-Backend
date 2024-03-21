@@ -15,7 +15,7 @@ namespace ProyectoFinal.ErrorResponse.Doc.Brand
                 Data = new BrandDTO
                 {
                     IdBrand = 1,
-                    Description = "Nike"
+                    Description = "Yamaha"
                 }
             };
         }
