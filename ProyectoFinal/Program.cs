@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using ProyectoFinal.Core.DTOs.Common;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IServices;
+using ProyectoFinal.GroupingByNamespace;
 using ProyectoFinal.Infraestructure.IoC;
 using ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceService;
 using ProyectoFinal.Infraestructure.Services.SendEmailService;
@@ -14,9 +15,24 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 
-
+string MyCors = "MyCors";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(opciones => opciones.AddDefaultPolicy(configuracion =>
+{
+    opciones.AddPolicy(name: MyCors, builder =>
+    {
+        builder.WithOrigins("*");
+        builder.WithHeaders("*");
+        builder.AllowAnyMethod();
+    });
+}));
+
 var services = builder.Services;
+services.AddControllers(options =>
+{
+    options.Conventions.Add(new GroupingByNamespaceConvention());
+});
 var configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -86,14 +102,32 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
+    var Servicios = "Core Services";
+    var description = "The Core Services constitute the first version of our API, designed without integrations with external systems to offer a solid and autonomous foundation for our users. These services represent the essence of our platform, providing a comprehensive range of functionalities without relying on external connections.";
+
+
+
+    var pasarela = "Payment Gateways";
+    var descriptionPasarela = "Our latest API version offers seamless and secure integration with various industry-leading payment gateways. With this version, developers can easily implement payment processing functionalities into their applications or platforms, enabling end-users to conduct financial transactions quickly and securely.";
+
 
 
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "MultiStock Enterprise Suite",
         Version = "v1",
-        Description = ""
+        Title = Servicios + " v1",
+        Description = description,
+
     });
+
+    c.SwaggerDoc("v2", new OpenApiInfo
+    {
+        Version = "v2",
+        Title = pasarela + " v2",
+        Description = descriptionPasarela,
+
+    });
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "Token de autenticación Bearer",
@@ -128,15 +162,16 @@ builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 var app = builder.Build();
 {
     app.UseSwagger();
-
     app.UseSwaggerUI(
         c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "MultiStock Enterprise Suite, SENA");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "MultiStock");
+            c.SwaggerEndpoint("/swagger/v2/swagger.json", "Payment Gateways");
             c.DefaultModelsExpandDepth(-1);
         }); app.UseSwagger();
 }
 
+app.UseCors(MyCors);
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

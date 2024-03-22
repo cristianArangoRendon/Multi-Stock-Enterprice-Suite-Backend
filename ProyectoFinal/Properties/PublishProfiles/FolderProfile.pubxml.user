@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\EQUIPO\Desktop</_PublishTargetUrl>
-    <History>True|2023-10-03T14:20:58.1190080Z;True|2023-10-03T09:12:21.2869860-05:00;</History>
+    <_PublishTargetUrl>C:\Users\EQUIPO\source\repos\Proyecto_final\ProyectoFinal\bin\Release\net7.0\publish\</_PublishTargetUrl>
+    <History>True|2024-03-22T20:43:04.1539123Z;True|2024-03-22T15:15:38.2163338-05:00;False|2024-03-22T15:15:30.9050796-05:00;True|2024-03-22T15:12:50.1879233-05:00;True|2024-03-22T15:09:25.8205562-05:00;True|2024-03-22T14:59:39.9537841-05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

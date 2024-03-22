@@ -4,7 +4,7 @@
         <name>ProyectoFinal</name>
     </assembly>
     <members>
-        <member name="M:ProyectoFinal.Controllers.AuthController.GenerateToken(ProyectoFinal.Core.DTOs.Users.AuthDTO)">
+        <member name="M:ProyectoFinal.Controllers.v1.AuthController.GenerateToken(ProyectoFinal.Core.DTOs.Users.AuthDTO)">
             <summary>
             Generates a token for authentication.
             </summary>
@@ -15,7 +15,7 @@
             </param>
             <remarks>This endpoint generates a token for authentication based on the provided email and password.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BillController.CreateBill(ProyectoFinal.Core.DTOs.Bill.CreateBillDTO)">
+        <member name="M:ProyectoFinal.Controllers.v1.BillController.CreateBill(ProyectoFinal.Core.DTOs.Bill.CreateBillDTO)">
             <summary>
             Creates a new bill.
             </summary>
@@ -31,13 +31,13 @@
             </param>
             <remarks>This endpoint creates a new bill with the provided data.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BillController.GetBill">
+        <member name="M:ProyectoFinal.Controllers.v1.BillController.GetBill">
             <summary>
             Retrieves bills.
             </summary>
             <remarks>This endpoint retrieves bills for the authenticated user.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BillController.GetBillById(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.v1.BillController.GetBillById(System.Int32)">
             <summary>
             Retrieves a bill by its ID.
             </summary>
@@ -47,7 +47,7 @@
             </param>
             <remarks>This endpoint retrieves a bill based on the provided ID.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BillController.DeleteBill(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.v1.BillController.DeleteBill(System.Int32)">
             <summary>
             Deletes a bill by its ID.
             </summary>
@@ -57,7 +57,7 @@
             </param>
             <remarks>This endpoint deletes a bill based on the provided ID.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BillController.UpdateBill(ProyectoFinal.Core.DTOs.Bill.UpdateBill)">
+        <member name="M:ProyectoFinal.Controllers.v1.BillController.UpdateBill(ProyectoFinal.Core.DTOs.Bill.UpdateBill)">
             <summary>
             Updates a bill.
             </summary>
@@ -75,7 +75,7 @@
             </param>
             <remarks>This endpoint updates a bill with the provided data.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BrandController.CreateBrand(System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.BrandController.CreateBrand(System.String)">
             <summary>
             Creates a new brand.
             </summary>
@@ -85,13 +85,13 @@
             </param>
             <remarks>This endpoint creates a new brand with the provided description.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BrandController.GetBrand">
+        <member name="M:ProyectoFinal.Controllers.v1.BrandController.GetBrand">
             <summary>
             Retrieves all brands.
             </summary>
             <remarks>This endpoint retrieves all brands.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BrandController.GetBrandById(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.v1.BrandController.GetBrandById(System.Int32)">
             <summary>
             Retrieves a brand by its ID.
             </summary>
@@ -100,7 +100,7 @@
             </param>
             <remarks>This endpoint retrieves a brand based on the provided ID.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BrandController.DeleteBrand(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.v1.BrandController.DeleteBrand(System.Int32)">
             <summary>
             Deletes a brand by its ID.
             </summary>
@@ -108,7 +108,7 @@
             - `IdBrand`:The ID of the brand to delete.</param>
             <remarks>This endpoint deletes a brand based on the provided ID.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.BrandController.UpdateBrand(ProyectoFinal.Core.DTOs.Brand.BrandDTO)">
+        <member name="M:ProyectoFinal.Controllers.v1.BrandController.UpdateBrand(ProyectoFinal.Core.DTOs.Brand.BrandDTO)">
             <summary>
             Updates a brand.
             </summary>
@@ -118,13 +118,13 @@
             </param>
             <remarks>This endpoint updates a brand with the provided data.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CategoryController.GetCategory">
+        <member name="M:ProyectoFinal.Controllers.v1.CategoryController.GetCategory">
             <summary>
             Retrieves all categories.
             </summary>
             <remarks>This endpoint retrieves all categories available in the system.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CategoryController.CreateCategory(System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.CategoryController.CreateCategory(System.String)">
             <summary>
             Creates a new category.
             </summary>
@@ -132,7 +132,7 @@
             - `category`:The name of the category to create.</param>
             <remarks>This endpoint creates a new category with the provided name.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CategoryController.DeleteCategory(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.v1.CategoryController.DeleteCategory(System.Int32)">
             <summary>
             Deletes a category by its ID.
             </summary>
@@ -140,7 +140,7 @@
             - `idCategory`:The ID of the category to delete.</param>
             <remarks>This endpoint deletes a category based on the provided category ID.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CategoryController.GetCategoryById(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.v1.CategoryController.GetCategoryById(System.Int32)">
              <summary>
              Retrieves a category by its ID.
              </summary>
@@ -149,7 +149,7 @@
             </param>
              <remarks>This endpoint retrieves a category based on the provided category ID.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CategoryController.UpdateCategory(ProyectoFinal.Core.DTOs.category.categoryDTO)">
+        <member name="M:ProyectoFinal.Controllers.v1.CategoryController.UpdateCategory(ProyectoFinal.Core.DTOs.category.categoryDTO)">
             <summary>
             Updates a category.
             </summary>
@@ -159,14 +159,14 @@
             </param>
             <remarks>This endpoint updates a category with the provided category data.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CityController.GetCities">
+        <member name="M:ProyectoFinal.Controllers.v1.CityController.GetCities">
             <summary>
             Retrieves a list of cities.
             </summary>
             <remarks>This endpoint retrieves a list of cities available in the system.</remarks>
             <returns>A list of cities.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CityController.GetCityById(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.v1.CityController.GetCityById(System.Int32)">
             <summary>
             Retrieves a city by its identifier.
             </summary>
@@ -176,7 +176,7 @@
             <remarks>This endpoint retrieves a city from the system based on its unique identifier.</remarks>
             <returns>The city with the specified identifier.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CityController.DeleteCity(System.Int32)">
+        <member name="M:ProyectoFinal.Controllers.v1.CityController.DeleteCity(System.Int32)">
             <summary>
             Deletes a city by its identifier.
             </summary>
@@ -186,7 +186,7 @@
             <remarks>This endpoint deletes a city from the system based on its unique identifier.</remarks>
             <returns>A response indicating the success or failure of the deletion operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CityController.UpdateCity(System.Int32,System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.CityController.UpdateCity(System.Int32,System.String)">
             <summary>
             Updates a city.
             </summary>
@@ -199,7 +199,7 @@
             <remarks>This endpoint updates a city in the system based on its unique identifier and the provided description.</remarks>
             <returns>A response indicating the success or failure of the update operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CityController.CreateCity(System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.CityController.CreateCity(System.String)">
             <summary>
             Creates a new city.
             </summary>
@@ -209,7 +209,7 @@
             <remarks>This endpoint creates a new city in the system with the provided description.</remarks>
             <returns>A response indicating the success or failure of the creation operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CompanyController.GetCompanies">
+        <member name="M:ProyectoFinal.Controllers.v1.CompanyController.GetCompanies">
             <summary>
             Retrieves a list of companies based on the user's role.
             </summary>
@@ -219,7 +219,7 @@
             </remarks>
             <returns>A response containing the list of companies.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CompanyController.GetCompany(System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.CompanyController.GetCompany(System.String)">
             <summary>
             Retrieves a company by its unique identifier.
             </summary>
@@ -232,7 +232,7 @@
             </remarks>
             <returns>A response containing the requested company.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CompanyController.CreateCompany(System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.CompanyController.CreateCompany(System.String)">
             <summary>
             Creates a new company.
             </summary>
@@ -245,7 +245,7 @@
             </remarks>
             <returns>A response indicating the success or failure of the creation operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CompanyController.PutCompany(System.Int32,System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.CompanyController.PutCompany(System.Int32,System.String)">
             <summary>
             Updates a company.
             </summary>
@@ -261,7 +261,7 @@
             </remarks>
             <returns>A response indicating the success or failure of the update operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.CompanyController.DeleteCompany(System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.CompanyController.DeleteCompany(System.String)">
             <summary>
             Deletes a company by its unique identifier.
             </summary>
@@ -274,7 +274,7 @@
             </remarks>
             <returns>A response indicating the success or failure of the deletion operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.HeadquartersController.GetHeadquarters">
+        <member name="M:ProyectoFinal.Controllers.v1.HeadquartersController.GetHeadquarters">
             <summary>
             Retrieves headquarters information.
             </summary>
@@ -284,7 +284,7 @@
             </remarks>
             <returns>A response containing headquarters information.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.HeadquartersController.CreateHeadquarters(ProyectoFinal.Core.DTOs.Headquarters.CreateHeadquartersDTO)">
+        <member name="M:ProyectoFinal.Controllers.v1.HeadquartersController.CreateHeadquarters(ProyectoFinal.Core.DTOs.Headquarters.CreateHeadquartersDTO)">
             <summary>
             Creates a new headquarters.
             </summary>
@@ -300,7 +300,7 @@
             </remarks>
             <returns>A response indicating the success or failure of the creation operation.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.HeadquartersController.UpdateHeadquarters(ProyectoFinal.Core.DTOs.Headquarters.UpdateHeadquarters)">
+        <member name="M:ProyectoFinal.Controllers.v1.HeadquartersController.UpdateHeadquarters(ProyectoFinal.Core.DTOs.Headquarters.UpdateHeadquarters)">
             <summary>
             Updates headquarters information.
             </summary>
