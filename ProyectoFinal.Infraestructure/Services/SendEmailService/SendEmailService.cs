@@ -16,7 +16,7 @@ namespace ProyectoFinal.Infraestructure.Services.SendEmailService
 
         }
 
-        public bool SendEmail(string Email, string menssage, string subject)
+        public async Task<bool> SendEmail(string Email, string menssage, string subject)
         {
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(_configuration["Email"]);
@@ -32,7 +32,7 @@ namespace ProyectoFinal.Infraestructure.Services.SendEmailService
             smtp.Credentials = new NetworkCredential(_configuration["Email"], _configuration["secretKey"]);
             smtp.EnableSsl = true;
             smtp.Send(mail);
-            return true;
+            return  true;
         }
     }
 }

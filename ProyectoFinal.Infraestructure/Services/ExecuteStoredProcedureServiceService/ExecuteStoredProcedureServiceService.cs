@@ -4,10 +4,10 @@ using ProyectoFinal.Core.Interfaces.DataContext;
 using ProyectoFinal.Core.Interfaces.IServices;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceService
 {
-
     public class ExecuteStoredProcedureServiceService : IExecuteStoredProcedureServiceService
     {
 
@@ -56,83 +56,92 @@ namespace ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceSe
                 response.Message += ex.ToString();
                 return response;
             }
-          
+
         }
 
         public async Task<ResponseDTO> ExecuteDataStoredProcedure<TResult>(string storedProcedureName, object parameters, Func<SqlDataReader, List<TResult>> mapFunction)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
-            try
-            {
-                using SqlCommand command = _DataContext.CreateCommand();
-                command.CommandText = storedProcedureName;
-                command.CommandType = CommandType.StoredProcedure;
-                _sqlCommandService.AddParameters(command, parameters);
-                using SqlDataReader reader = await command.ExecuteReaderAsync();
-                List<TResult> resultList = mapFunction(reader);
-                if (resultList.Count == 0)
+         
+                try
                 {
-                    response.Message = "This Id does not contain information.";
-                    response.IsSuccess = true;
-                    response.Data = null;
-                }
-                else
-                {
-                    response.IsSuccess = true;
-                    response.Message = "Successfull Operation.";
-                    response.Data = resultList;
-                }
-                return response;
+                    using SqlCommand command = _DataContext.CreateCommand();
+                    command.CommandText = storedProcedureName;
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandTimeout = 1;
+                    _sqlCommandService.AddParameters(command, parameters);
+                    using SqlDataReader reader = await command.ExecuteReaderAsync();
+                    List<TResult> resultList = mapFunction(reader);
+                    if (resultList.Count == 0)
+                    {
+                        response.Message = "This Id does not contain information.";
+                        response.IsSuccess = true;
+                        response.Data = null;
+                    }
+                    else
+                    {
+                        response.IsSuccess = true;
+                        response.Message = "Successfull Operation.";
+                        response.Data = resultList;
+                    }
+                    return response;
 
 
-            }
-            catch (Exception ex)
-            {
-                _logService.SaveLogsMessages($"Se ha producido un error al ejecutar el SP {storedProcedureName}: {ex.Message}");
-                response.Message += ex.ToString();
-                return response;
-            }
+                }
+                catch (Exception ex)
+                {
+                    _logService.SaveLogsMessages($"Se ha producido un error al ejecutar el SP {storedProcedureName}: {ex.Message}");
+                    response.Message += ex.ToString();
+                    return response;
+                }
         }
 
-      
+
 
         public async Task<ResponseDTO> ExecuteSingleObjectStoredProcedure<TResult>(string storedProcedureName, object parameters, Func<SqlDataReader, TResult> mapFunction)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
-            try
-            {
-                using SqlCommand command = _DataContext.CreateCommand();
-                command.CommandText = storedProcedureName;
-                command.CommandType = CommandType.StoredProcedure;
-                _sqlCommandService.AddParameters(command, parameters);
-                using SqlDataReader reader = await command.ExecuteReaderAsync();
-                TResult resultList = mapFunction(reader);
-                if (resultList == null)
+
+                await Task.Run(async () =>
                 {
-                    response.Message = "This Id does not contain information.";
-                    response.IsSuccess = true;
-                    response.Data = null;
+                    try
+                    {
+                        using SqlCommand command = _DataContext.CreateCommand();
+                        command.CommandText = storedProcedureName;
+                        command.CommandType = CommandType.StoredProcedure;
+                        _sqlCommandService.AddParameters(command, parameters);
+                        using SqlDataReader reader = await command.ExecuteReaderAsync();
+                        TResult resultList = mapFunction(reader);
+                        if (resultList == null)
+                        {
+                            response.Message = "This Id does not contain information.";
+                            response.IsSuccess = true;
+                            response.Data = null;
+                        }
+                        else
+                        {
+                            response.IsSuccess = true;
+                            response.Message = "Successfull Operation.";
+                            response.Data = resultList;
+                        }
+                        return response;
+                    }
+                    catch (Exception ex)
+                    {
+                        _logService.SaveLogsMessages($"Se ha producido un error al ejecutar el SP {storedProcedureName}: {ex.Message}");
+                        response.Message += ex.ToString();
+                        return response;
+                    }
+
                 }
-                else
-                {
-                    response.IsSuccess = true;
-                    response.Message = "Successfull Operation.";
-                    response.Data = resultList;
-                }
-                return response;
-            }
-            catch (Exception ex)
-            {
-                _logService.SaveLogsMessages($"Se ha producido un error al ejecutar el SP {storedProcedureName}: {ex.Message}");
-                response.Message += ex.ToString();
-                return response;
-            }
-          
+        
+            );
+           return response;
         }
 
-        
+
         public async Task<ResponseDTO> ExecuteStoredProcedure(string storedProcedureName, object parameters)
         {
             ResponseDTO response = new ResponseDTO();
@@ -156,7 +165,7 @@ namespace ProyectoFinal.Infraestructure.Services.ExecuteStoredProcedureServiceSe
                 response.Message += ex.ToString();
                 return response;
             }
-            
+
         }
     }
 }

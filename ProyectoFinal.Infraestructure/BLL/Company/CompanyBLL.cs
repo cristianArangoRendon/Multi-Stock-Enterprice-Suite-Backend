@@ -19,7 +19,7 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
             _configuration = configuration;
         }
         
-        public async Task<ResponseDTO> CreateCompany(string Description, int idRol)
+        public async Task<ResponseDTO> CreateCompany(string Description, string officeAddress, string telephoneNumber, string foundingDate, string nit, string nameCEO, int idRol)
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
@@ -28,8 +28,9 @@ namespace ProyectoFinal.Infraestructure.BLL.Company
             {
                 if(idRol == adminNumber)
                 {
-                    Guid guid = Guid.NewGuid();
-                    return await _companyRepository.CreateCompany(Description, guid.ToString());
+                    Guid guidCompany = Guid.NewGuid();
+                    
+                    return await _companyRepository.CreateCompany(Description, guidCompany.ToString(), officeAddress, telephoneNumber, foundingDate, nit, nameCEO);
                 }
                 else
                 {

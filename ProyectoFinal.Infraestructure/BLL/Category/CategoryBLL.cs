@@ -4,7 +4,6 @@ using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.Interfaces.IBLL.Category;
 using ProyectoFinal.Core.Interfaces.IRepository.Category;
 using ProyectoFinal.Infraestructure.Helpers;
-using ProyectoFinal.Infraestructure.Services.LogService;
 
 namespace ProyectoFinal.Infraestructure.BLL.Category
 {

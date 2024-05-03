@@ -4,7 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace ActiveDirectoryBack.Infrastructure.Helpers
+namespace crm.Infrastructure.Helpers
 {
     public static class GenerateTokenHelper
     {        

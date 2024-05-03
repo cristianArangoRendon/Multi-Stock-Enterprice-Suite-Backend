@@ -61,14 +61,14 @@ namespace ProyectoFinal.Infraestructure.BLL.City
             }
         }
 
-        public async Task<ResponseDTO> GetCities()
+        public async Task<ResponseDTO> GetCities(int idDepartament)
         {
             ResponseDTO respuesta = new ResponseDTO();
             respuesta.IsSuccess = false;
 
             try
             {
-                return await _cityRepository.GetCities();
+                return await _cityRepository.GetCities(idDepartament);
             }
             catch (Exception ex)
             {

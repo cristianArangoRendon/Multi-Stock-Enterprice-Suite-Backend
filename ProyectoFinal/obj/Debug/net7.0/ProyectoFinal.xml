@@ -159,7 +159,7 @@
             </param>
             <remarks>This endpoint updates a category with the provided category data.</remarks>
         </member>
-        <member name="M:ProyectoFinal.Controllers.v1.CityController.GetCities">
+        <member name="M:ProyectoFinal.Controllers.v1.CityController.GetCities(System.Int32)">
             <summary>
             Retrieves a list of cities.
             </summary>
@@ -232,7 +232,7 @@
             </remarks>
             <returns>A response containing the requested company.</returns>
         </member>
-        <member name="M:ProyectoFinal.Controllers.v1.CompanyController.CreateCompany(System.String)">
+        <member name="M:ProyectoFinal.Controllers.v1.CompanyController.CreateCompany(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Creates a new company.
             </summary>

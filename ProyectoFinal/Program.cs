@@ -160,11 +160,13 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 
 var app = builder.Build();
+app.UseStaticFiles();
 {
     app.UseSwagger();
     app.UseSwaggerUI(
         c =>
         {
+            c.InjectStylesheet("/swagger-ui/custom.css");
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "MultiStock");
             c.SwaggerEndpoint("/swagger/v2/swagger.json", "Payment Gateways");
             c.DefaultModelsExpandDepth(-1);

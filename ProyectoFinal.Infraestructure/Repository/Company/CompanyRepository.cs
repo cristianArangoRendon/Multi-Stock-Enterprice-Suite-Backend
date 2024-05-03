@@ -1,8 +1,10 @@
 ﻿using ActiveDirectoryBack.Infrastructure.Helpers;
 using ProyectoFinal.Core.DTOs.Company;
 using ProyectoFinal.Core.DTOs.Response;
+using ProyectoFinal.Core.DTOs.Users;
 using ProyectoFinal.Core.Interfaces.IRepository.Company;
 using ProyectoFinal.Core.Interfaces.IServices;
+using ProyectoFinal.Infraestructure.Helpers;
 
 namespace ProyectoFinal.Infraestructure.Repository.Company
 {
@@ -12,16 +14,19 @@ namespace ProyectoFinal.Infraestructure.Repository.Company
 
         public CompanyRepository(IExecuteStoredProcedureServiceService service) => _ExecuteStoredProcedureServiceService = service;
         
-        public async Task<ResponseDTO> CreateCompany(string Description, string guidCompany)
+        public async Task<ResponseDTO> CreateCompany(string Description, string GuidCompany, string officeAddress, string telephoneNumber, string foundingDate, string nit, string nameCEO)
         {
-            
             var parameters = new
             {
-                Description= Description,
-                GuidCompany = guidCompany,
+                Description = Description,
+                guidCompany = GuidCompany,
+                OfficeAddress = officeAddress,
+                TelephoneNumber = telephoneNumber,
+                FoundingDate = foundingDate,      
+                nit = nit,
+                NameCEO = nameCEO,
             };
-
-            return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("CreateCompany", parameters);
+            return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("dbo.CreateCompany", parameters);
         }
 
         public async Task<ResponseDTO> DeleteCompany(string GuidCompany)
@@ -46,15 +51,6 @@ namespace ProyectoFinal.Infraestructure.Repository.Company
             return await _ExecuteStoredProcedureServiceService.ExecuteSingleObjectStoredProcedure("GetCompanyById", parameters, MapToObjHelper.MapToObj<CompaniesDTO>);
         }
 
-        public async Task<ResponseDTO> PostCompany(string description)
-        {
-            var parameters = new
-            {
-                Description = description
-            };
-
-            return await _ExecuteStoredProcedureServiceService.ExecuteStoredProcedure("CreateCompany", parameters);
-        }
 
         public async Task<ResponseDTO> PutCompany(int idCompany, string description)
         {

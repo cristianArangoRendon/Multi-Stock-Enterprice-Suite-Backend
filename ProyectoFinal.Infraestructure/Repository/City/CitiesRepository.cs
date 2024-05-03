@@ -43,9 +43,14 @@ namespace ProyectoFinal.Infraestructure.Repository.City
             return await _executeStoredProcedureServiceService.ExecuteStoredProcedure("dbo.DeleteCity", parameters);
         }
 
-        public async Task<ResponseDTO> GetCities()
+        public async Task<ResponseDTO> GetCities(int idDepartament)
         {
-            return await _executeStoredProcedureServiceService.ExecuteData("dbo.GetCities", MapToListHelper.MapToList<CitiesDTO>);
+            var parameters = new
+            {
+                idDepartament = idDepartament
+            };
+
+            return await _executeStoredProcedureServiceService.ExecuteDataStoredProcedure("dbo.GetCities", parameters, MapToListHelper.MapToList<CitiesDTO>);
         }
 
         public async Task<ResponseDTO> UpdateCity(int idCity, string Description)

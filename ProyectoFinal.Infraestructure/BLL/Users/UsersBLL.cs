@@ -1,8 +1,7 @@
 ﻿using ActiveDirectoryBack.Core.Interfaces.Services;
 using ActiveDirectoryBack.Infrastructure.Helpers;
+using crm.Infrastructure.Helpers;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
-using ProyectoFinal.Core.DTOs.Common;
 using ProyectoFinal.Core.DTOs.Response;
 using ProyectoFinal.Core.DTOs.Users;
 using ProyectoFinal.Core.Interfaces.IBLL.Users;
@@ -17,16 +16,14 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
 
         private readonly IUsersRepository _userRepository;
         private readonly ILogService _logService;
-        private readonly AppSettings _appSettings;
         private readonly IConfiguration _configuration;
         private readonly ISendEmailService _sendEmailService;
 
-        public UsersBLL(IUsersRepository Users, ILogService logService, IOptions<AppSettings> appSettings, IConfiguration configuration, ISendEmailService sendEmail)
+        public UsersBLL(IUsersRepository Users, ILogService logService,  IConfiguration configuration, ISendEmailService sendEmail)
         {
             _userRepository = Users;
             _logService = logService;
             _configuration = configuration;
-            _appSettings = appSettings.Value;
             _sendEmailService = sendEmail;
         }
 
@@ -57,14 +54,13 @@ namespace ProyectoFinal.Infraestructure.BLL.Users
         {
             ResponseDTO response = new ResponseDTO();
             response.IsSuccess = false;
-
+            var body = "";
             try
             {
                 userDTO.password = Hash256Helper.GetSHA256Hash(userDTO.password);
+                var EmailService = await _sendEmailService.SendEmail(userDTO.Email, body, userDTO.Names);
                 var responseData = await _userRepository.CreateUsersRepository(userDTO);
-                var body = "";
-                var EmailService = _sendEmailService.SendEmail(userDTO.Email, body, userDTO.Names);
-                return responseData;
+                return  responseData;
             }
             catch (Exception ex)
             {
