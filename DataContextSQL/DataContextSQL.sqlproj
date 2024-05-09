@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DataContextSQL</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{c25d0dff-079f-4ce0-bf5e-6d9a403aa45a}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DataContextSQL</RootNamespace>
+    <AssemblyName>DataContextSQL</AssemblyName>
+    <ModelCollation>3082,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Modern_Spanish_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\trantractions.sql" />
+    <Build Include="dbo\Tables\methodPayment.sql" />
+    <Build Include="dbo\Tables\departament.sql" />
+    <Build Include="dbo\Tables\country.sql" />
+    <Build Include="dbo\Tables\movement.sql" />
+    <Build Include="dbo\Tables\neighborhood.sql" />
+    <Build Include="dbo\Tables\movementType.sql" />
+    <Build Include="dbo\Tables\company.sql" />
+    <Build Include="dbo\Tables\headquarters.sql" />
+    <Build Include="dbo\Tables\city.sql" />
+    <Build Include="dbo\Tables\rol.sql" />
+    <Build Include="dbo\Tables\users.sql" />
+    <Build Include="dbo\Tables\warehouse.sql" />
+    <Build Include="dbo\Tables\category.sql" />
+    <Build Include="dbo\Tables\brand.sql" />
+    <Build Include="dbo\Tables\provider.sql" />
+    <Build Include="dbo\Tables\products.sql" />
+    <Build Include="dbo\Tables\bill.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteCity.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateCity.sql" />
+    <Build Include="dbo\Stored Procedures\CreateCity.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateBill.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserByEmail.sql" />
+    <Build Include="dbo\Stored Procedures\Auth.sql" />
+    <Build Include="dbo\Stored Procedures\GetNeighborhood.sql" />
+    <Build Include="dbo\Stored Procedures\CreateNeighborhood.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteNeighborhood.sql" />
+    <Build Include="dbo\Stored Procedures\GetUsers.sql" />
+    <Build Include="dbo\Stored Procedures\GetNeighborhoodById.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateUsers.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateNeighborhood.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteUsers.sql" />
+    <Build Include="dbo\Stored Procedures\CreateUsers.sql" />
+    <Build Include="dbo\Stored Procedures\GetBrands.sql" />
+    <Build Include="dbo\Stored Procedures\CreateBrand.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteBrand.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateBrand.sql" />
+    <Build Include="dbo\Stored Procedures\CreateMethodPayment.sql" />
+    <Build Include="dbo\Stored Procedures\GetMethodPayment.sql" />
+    <Build Include="dbo\Stored Procedures\GetCategory.sql" />
+    <Build Include="dbo\Stored Procedures\CreateCategory.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteMethodPayment.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteCategory.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateMethodPayment.sql" />
+    <Build Include="dbo\Stored Procedures\CreateProducts.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteProduct.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateProduct.sql" />
+    <Build Include="dbo\Stored Procedures\GetProducts.sql" />
+    <Build Include="dbo\Stored Procedures\GetProvider.sql" />
+    <Build Include="dbo\Stored Procedures\CreateProvider.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteProvider.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateCategory.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateProvider.sql" />
+    <Build Include="dbo\Stored Procedures\GetRol.sql" />
+    <Build Include="dbo\Stored Procedures\CreateRol.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteRol.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateRol.sql" />
+    <Build Include="dbo\Stored Procedures\CreateMovement.sql" />
+    <Build Include="dbo\Stored Procedures\GetUserById.sql" />
+    <Build Include="dbo\Stored Procedures\CreateCompany.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteCompany.sql" />
+    <Build Include="dbo\Stored Procedures\GetCompanies.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateCompany.sql" />
+    <Build Include="dbo\Stored Procedures\GetCompanyById.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteWarehouse.sql" />
+    <Build Include="dbo\Stored Procedures\GetBrandById.sql" />
+    <Build Include="dbo\Stored Procedures\CreateBill.sql" />
+    <Build Include="dbo\Stored Procedures\GetBill.sql" />
+    <Build Include="dbo\Stored Procedures\GetBillById.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteBill.sql" />
+    <Build Include="dbo\Stored Procedures\GetHeadquarters.sql" />
+    <Build Include="dbo\Stored Procedures\CreateHeadquaters.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateHeadquarters.sql" />
+    <Build Include="dbo\Stored Procedures\GetCategoryById.sql" />
+    <Build Include="dbo\Stored Procedures\GetProductsById.sql" />
+    <Build Include="dbo\Stored Procedures\GetWarehouse.sql" />
+    <Build Include="dbo\Stored Procedures\GetProviderById.sql" />
+    <Build Include="dbo\Stored Procedures\CreateWarehouse.sql" />
+    <Build Include="dbo\Stored Procedures\GetRolById.sql" />
+    <Build Include="dbo\Stored Procedures\GetCities.sql" />
+    <Build Include="dbo\Stored Procedures\GetCityById.sql" />
+  </ItemGroup>
+</Project>

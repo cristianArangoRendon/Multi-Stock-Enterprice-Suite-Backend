@@ -1,0 +1,88 @@
+9/05/2024 5:47:20 p. m.	Este registro contiene información acerca de la operación de importación de esquema en el proyecto 'DataContextSQL' del equipo 'CRISTIAN' por el usuario 'EQUIPO'.
+9/05/2024 5:47:20 p. m.	Se inició la importación del esquema de la base de datos.
+9/05/2024 5:47:26 p. m.	Recopilando credenciales de la base de datos
+9/05/2024 5:47:26 p. m.	Recopilando opciones de base de datos
+9/05/2024 5:47:26 p. m.	Recopilando la opción de configuración de ámbito de la base de datos genérica
+9/05/2024 5:47:26 p. m.	Recopilando usuarios
+9/05/2024 5:47:26 p. m.	Recopilando roles
+9/05/2024 5:47:26 p. m.	Recopilando roles de aplicación
+9/05/2024 5:47:26 p. m.	Recopilando pertenencias a roles
+9/05/2024 5:47:26 p. m.	Recopilando grupos de archivos
+9/05/2024 5:47:26 p. m.	Recopilando catálogos de texto completo
+9/05/2024 5:47:26 p. m.	Recopilando ensamblados
+9/05/2024 5:47:26 p. m.	Recopilando certificados
+9/05/2024 5:47:26 p. m.	Recopilando claves asimétricas
+9/05/2024 5:47:26 p. m.	Recopilando claves simétricas
+9/05/2024 5:47:26 p. m.	Recopilando claves simétricas cifradas
+9/05/2024 5:47:26 p. m.	Recopilando esquemas
+9/05/2024 5:47:26 p. m.	Recopilando colecciones de esquemas XML
+9/05/2024 5:47:26 p. m.	Recopilando tipos de datos definidos por el usuario
+9/05/2024 5:47:26 p. m.	Recopilando tipos definidos por el usuario
+9/05/2024 5:47:26 p. m.	Recopilando tipos de tabla
+9/05/2024 5:47:26 p. m.	Recopilando claves únicas para tipos de tabla
+9/05/2024 5:47:26 p. m.	Recopilando claves principales para tipos de tabla
+9/05/2024 5:47:26 p. m.	Recopilando índices para tipos de tablas
+9/05/2024 5:47:26 p. m.	Recopilando restricciones CHECK para tipos de tabla
+9/05/2024 5:47:26 p. m.	Recopilando restricciones DEFAULT para tipos de tabla
+9/05/2024 5:47:26 p. m.	Recopilando funciones de partición
+9/05/2024 5:47:26 p. m.	Recopilando esquemas de partición
+9/05/2024 5:47:26 p. m.	Recopilando funciones
+9/05/2024 5:47:26 p. m.	Recopilando funciones cifradas
+9/05/2024 5:47:26 p. m.	Recopilando agregados
+9/05/2024 5:47:26 p. m.	Recopilando procedimientos
+9/05/2024 5:47:26 p. m.	Recopilando procedimientos cifrados
+9/05/2024 5:47:26 p. m.	Recopilando tablas
+9/05/2024 5:47:26 p. m.	Recopilando claves principales
+9/05/2024 5:47:26 p. m.	Recopilando restricciones UNIQUE
+9/05/2024 5:47:26 p. m.	Recopilando claves externas
+9/05/2024 5:47:26 p. m.	Recopilando restricciones DEFAULT
+9/05/2024 5:47:26 p. m.	Recopilando restricciones CHECK
+9/05/2024 5:47:26 p. m.	Recopilando vistas
+9/05/2024 5:47:26 p. m.	Recopilando vistas cifradas
+9/05/2024 5:47:26 p. m.	Recopilando índices
+9/05/2024 5:47:26 p. m.	Recopilando estadísticas
+9/05/2024 5:47:26 p. m.	Recopilando listas de palabras irrelevantes de índices de texto completo
+9/05/2024 5:47:26 p. m.	Recopilando listas de propiedades de búsqueda
+9/05/2024 5:47:26 p. m.	Recopilando propiedades de búsqueda
+9/05/2024 5:47:26 p. m.	Recopilando índices de texto completo
+9/05/2024 5:47:26 p. m.	Recopilando índices de almacenamiento de columnas
+9/05/2024 5:47:26 p. m.	Recopilando índices espaciales
+9/05/2024 5:47:26 p. m.	Recopilando índices XML
+9/05/2024 5:47:26 p. m.	Recopilando índices XML selectivos
+9/05/2024 5:47:26 p. m.	Recopilando desencadenadores cifrados
+9/05/2024 5:47:26 p. m.	Recopilando desencadenadores
+9/05/2024 5:47:26 p. m.	Recopilando DDL triggers cifrados y de CLR
+9/05/2024 5:47:26 p. m.	Recopilando DDL triggers
+9/05/2024 5:47:26 p. m.	Creación de la restricción perimetral en curso
+9/05/2024 5:47:26 p. m.	Recopilando sinónimos
+9/05/2024 5:47:26 p. m.	Recopilando valores predeterminados
+9/05/2024 5:47:26 p. m.	Recopilando enlaces UDDT de restricción de datos
+9/05/2024 5:47:26 p. m.	Recopilando reglas
+9/05/2024 5:47:26 p. m.	Recopilando enlaces UDDT de restricción de datos
+9/05/2024 5:47:26 p. m.	Recopilando tipos de mensaje
+9/05/2024 5:47:26 p. m.	Recopilando colas
+9/05/2024 5:47:26 p. m.	Recopilando contratos
+9/05/2024 5:47:26 p. m.	Recopilando servicios
+9/05/2024 5:47:26 p. m.	Recopilando notificaciones de eventos
+9/05/2024 5:47:26 p. m.	Recopilando enlaces de servicio remoto
+9/05/2024 5:47:26 p. m.	Recopilando prioridades de Broker
+9/05/2024 5:47:26 p. m.	Recopilando firmas
+9/05/2024 5:47:26 p. m.	Recopilando opciones de compresión
+9/05/2024 5:47:26 p. m.	Recopilando tipos de secuencia
+9/05/2024 5:47:26 p. m.	Recopilando directivas de seguridad
+9/05/2024 5:47:26 p. m.	Recopilar claves de cifrado de columna
+9/05/2024 5:47:26 p. m.	Recopilando claves maestras de columna
+9/05/2024 5:47:26 p. m.	Recopilando orígenes de datos externos
+9/05/2024 5:47:26 p. m.	Recopilando formatos de archivo externos
+9/05/2024 5:47:26 p. m.	Recopilando tablas externas
+9/05/2024 5:47:26 p. m.	Recopilando opciones de compresión de índice XML
+9/05/2024 5:47:26 p. m.	Recopilando propiedades extendidas
+9/05/2024 5:47:26 p. m.	Recopilando ensamblados
+9/05/2024 5:47:26 p. m.	Recopilando credenciales
+9/05/2024 5:47:26 p. m.	Recopilando inicios de sesión
+9/05/2024 5:47:27 p. m.	Recopilando auditorías de servidor
+9/05/2024 5:47:27 p. m.	Buscando elementos duplicados en el proyecto
+9/05/2024 5:47:27 p. m.	Ha finalizado el procesamiento de los elementos duplicados
+9/05/2024 5:47:29 p. m.	Finalizó la importación de la base de datos.
+9/05/2024 5:47:29 p. m.	Se guardó un resumen de la importación en la siguiente ubicación: C:\Users\EQUIPO\source\repos\Proyecto_final\DataContextSQL\Registros de importación de esquemas\DataContextSQL_20240509104720.log
+9/05/2024 5:47:29 p. m.	Haga clic en Finalizar para continuar...
